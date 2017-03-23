@@ -1,0 +1,2 @@
+<apex:page standardController="Order" extensions="OrderToolboxCtrl" action="{!goToToolbox}">
+</apex:page>

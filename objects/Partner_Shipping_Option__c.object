@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Captures partner shipping options and pricing.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Carrier__c</fullName>
+        <externalId>false</externalId>
+        <label>Carrier</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Carrier</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Default_Price__c</fullName>
+        <description>Default Price for Shipping with this option.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default Price for Shipping with this option.</inlineHelpText>
+        <label>Default Shipping Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Partner Shipping Options</relationshipLabel>
+        <relationshipName>Partner_Shipping_Options</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Rate_10_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (10 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_11_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (11 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_12_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (12 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_13_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (13 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_14_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (14 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_15_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (15 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_16_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (16 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_17_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (17 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_18_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (18 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_19_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (19 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_1_kit__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (1 kit)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_20_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (20 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_2_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (2 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_3_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (3 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_4_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (4 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_5_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (5 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_6_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (6 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_7_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (7 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_8_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (8 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rate_9_kits__c</fullName>
+        <description>Rate for indicated number of kits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate for indicated number of kits</inlineHelpText>
+        <label>Rate (9 kits)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Service_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Level</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Service_Level</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Shipping_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Shipping Product</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Product2.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>S&amp;H RT</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Partner Shipping Options</relationshipLabel>
+        <relationshipName>Partner_Shipping_Options</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Partner Shipping Option</label>
+    <nameField>
+        <displayFormat>SHP{00000}</displayFormat>
+        <label>PartnerShippingOptions Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Partner Shipping Options</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

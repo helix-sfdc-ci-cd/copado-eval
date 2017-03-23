@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Case Rule</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>contains</operation>
+                <value>Email,Web</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <replyToEmail>support@helix.com</replyToEmail>
+            <senderEmail>customercare@helix.com</senderEmail>
+            <senderName>Helix Customer Support</senderName>
+            <template>Support_templates/Case_Submission_Confirmation_text_only</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

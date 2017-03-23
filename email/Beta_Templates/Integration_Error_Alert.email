@@ -1,0 +1,11 @@
+***INTEGRATION ERROR NOTIFICATION ***  
+
+The following Integration Error Case has been created...
+ 
+Order:  {!Order.OrderNumber}
+Contact Name:  {!Contact.Name} 
+Case #:  {!Case.CaseNumber} 
+Subject:  {!Case.Subject} 
+Case Reason:  {!Case.Reason}
+
+Click on the link to access the case:  {!Case.Link}

@@ -1,0 +1,1626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Accessioning_Status__c</fullName>
+        <description>Kit products only. Last Accessioning status received from lab.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last Accessioning status received from lab.</inlineHelpText>
+        <label>Accessioning Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PASS</fullName>
+                    <default>false</default>
+                    <label>PASS</label>
+                </value>
+                <value>
+                    <fullName>HOLD</fullName>
+                    <default>false</default>
+                    <label>HOLD</label>
+                </value>
+                <value>
+                    <fullName>RETURN TO ACCESSIONING</fullName>
+                    <default>false</default>
+                    <label>RETURN TO ACCESSIONING</label>
+                </value>
+                <value>
+                    <fullName>FAILURE REVIEW</fullName>
+                    <default>false</default>
+                    <label>FAILURE REVIEW</label>
+                </value>
+                <value>
+                    <fullName>FAIL</fullName>
+                    <default>false</default>
+                    <label>FAIL</label>
+                </value>
+                <value>
+                    <fullName>CANCELLED</fullName>
+                    <default>false</default>
+                    <label>CANCELLED</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Analysis_Workflow__c</fullName>
+        <description>Set on OP creation. Applies to kit products only. Required field for Sample Manifest export integration. 
+(The format used is &lt;App&gt;&lt;App Version&gt;&lt;Workflow Tag&gt;&lt;Workflow version&gt;)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set on OP creation. Applies to kit products only. Required field for Sample Manifest export integration. 
+(The format used is &lt;App&gt;&lt;App Version&gt;&lt;Workflow Tag&gt;&lt;Workflow version&gt;)</inlineHelpText>
+        <label>Analysis Workflow</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AppID__c</fullName>
+        <description>App ID used for HMAPI and NETSUITE</description>
+        <externalId>false</externalId>
+        <inlineHelpText>App ID used for HMAPI and NETSUITE</inlineHelpText>
+        <label>AppID</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>App_Partner_Account__c</fullName>
+        <description>Partner Account supplying App Product</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Partner_Account__r.Name</formula>
+        <inlineHelpText>Partner Account supplying App Product</inlineHelpText>
+        <label>App Partner Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AvailableQuantity</fullName>
+    </fields>
+    <fields>
+        <fullName>BillTo_Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Required for Email Alerts triggered at the Order Item level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required for Email Alerts triggered at the Order Item level.</inlineHelpText>
+        <label>BillTo Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Order Products (BillTo Contact)</relationshipLabel>
+        <relationshipName>Order_Products_BillTo</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Box__c</fullName>
+        <description>Location of kit in accessioning lab.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Location of kit in accessioning lab.</inlineHelpText>
+        <label>Box</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Carrier__c</fullName>
+        <description>Shipping Carrier</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shipping Carrier</inlineHelpText>
+        <label>Carrier</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Carrier</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>DNA_Extraction_Completion_Date__c</fullName>
+        <description>Date when DNA Extraction of a sample was completed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when DNA Extraction of a sample was completed</inlineHelpText>
+        <label>DNA Extraction Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DNA_Extraction_Start_Date__c</fullName>
+        <description>Date when DNA Extraction of a sample is started</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when DNA Extraction of a sample is started</inlineHelpText>
+        <label>DNA Extraction Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Data_Delivery_Date__c</fullName>
+        <description>Date when Sample Status first switched to &quot;Data Delivered&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when Sample Status first switched to &quot;Data Delivered&quot;</inlineHelpText>
+        <label>Data Delivery Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Delivery_Mode__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(PricebookEntry.Product2.Delivery_Mode__c )</formula>
+        <label>Delivery Mode</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Failure_Reason__c</fullName>
+        <description>Kit product specific. Failure reason selected by lab during accessioning.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Failure reason selected by lab during accessioning.</inlineHelpText>
+        <label>Failure Reason</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Low Volume</fullName>
+                    <default>false</default>
+                    <label>Low Volume</label>
+                </value>
+                <value>
+                    <fullName>High Volume</fullName>
+                    <default>false</default>
+                    <label>High Volume</label>
+                </value>
+                <value>
+                    <fullName>No Preservative</fullName>
+                    <default>false</default>
+                    <label>No Preservative</label>
+                </value>
+                <value>
+                    <fullName>Color Off / Opacity</fullName>
+                    <default>false</default>
+                    <label>Color Off / Opacity</label>
+                </value>
+                <value>
+                    <fullName>Unknown Particulates</fullName>
+                    <default>false</default>
+                    <label>Unknown Particulates</label>
+                </value>
+                <value>
+                    <fullName>Spill / Leak / Damaged kit</fullName>
+                    <default>false</default>
+                    <label>Spill / Leak / Damaged kit</label>
+                </value>
+                <value>
+                    <fullName>Other (Please Specify)</fullName>
+                    <default>false</default>
+                    <label>Other (Please Specify)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Failure_Reviewed_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Authorized individual who reviewed the accessioning failure for this kit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Authorized individual who reviewed the accessioning failure for this kit.</inlineHelpText>
+        <label>Failure Reviewed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Failure_Reviewer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>First_Accessioning_Scan__c</fullName>
+        <description>This field is set the first time the Accession Status field is changed from null to ANY selection. Indicates that a kit has been received at the lab and is used to set the Inventory Transfer Date in Netsuite.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is set the first time the Accession Status field is changed from null to ANY selection. Indicates that a kit has been received at the lab and is used to set the Inventory Transfer Date in Netsuite.</inlineHelpText>
+        <label>First Accessioning Scan</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Group_Number__c</fullName>
+        <description>Used to group order product lines for transfer into netsuite sales order item groups</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to group order product lines for transfer into netsuite sales order item groups</inlineHelpText>
+        <label>Group Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+                <value>
+                    <fullName>6</fullName>
+                    <default>false</default>
+                    <label>6</label>
+                </value>
+                <value>
+                    <fullName>7</fullName>
+                    <default>false</default>
+                    <label>7</label>
+                </value>
+                <value>
+                    <fullName>8</fullName>
+                    <default>false</default>
+                    <label>8</label>
+                </value>
+                <value>
+                    <fullName>9</fullName>
+                    <default>false</default>
+                    <label>9</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Group_Type__c</fullName>
+        <description>Determines group type used for selecting item group number when creating sales orders</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines group type used for selecting item group number when creating sales orders</inlineHelpText>
+        <label>Group Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>App with Kit</fullName>
+                    <default>true</default>
+                    <label>App with Kit</label>
+                </value>
+                <value>
+                    <fullName>App without Kit</fullName>
+                    <default>false</default>
+                    <label>App without Kit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hold_Reason__c</fullName>
+        <description>Hold reason captured during accessioning</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hold reason captured during accessioning</inlineHelpText>
+        <label>Hold Reason</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contact Missing</fullName>
+                    <default>false</default>
+                    <label>Contact Missing</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Include_In_Actual_Order_Total__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>True for Apps, Tax, S&amp;H. Set by WFR on Order Product Creation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>True for Apps, Tax, S&amp;H. Set by WFR on Order Product Creation.</inlineHelpText>
+        <label>Include In Actual Order Total</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Integrate_with_DNAG__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Used to run DNAG integration on selected records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to run DNAG integration on selected records</inlineHelpText>
+        <label>Integrate with DNAG</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Integration_Test__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Must be TRUE for Netsuite integration to proceed. Default value is TRUE for Production. Set to FALSE in Sandbox to prevent picking up unwanted records. If an error occurs during integration, this field value will set to FALSE to prevent repeated attempts on records with issues.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Must be TRUE for Netsuite integration. Default is TRUE for Production. Set to FALSE in Sandbox to prevent passing unwanted records. If an integration error occurs , this field value will set to FALSE to prevent repeated attempts on problem records.</inlineHelpText>
+        <label>Integrate with Netsuite</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inventory_Transfer_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Netsuite Inventory Transfer record to lab was successfully created. Occurs after first Accession scan.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Netsuite Inventory Transfer record to lab was successfully created. Occurs after first Accession scan.</inlineHelpText>
+        <label>Inventory Transfer Created</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inventory_Transfer_ID__c</fullName>
+        <description>Captures the NS Inventory Transfer internal ID.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the NS Inventory Transfer internal ID.</inlineHelpText>
+        <label>Inventory Transfer ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsCancellable__c</fullName>
+        <description>Captures the value of the Product record field of the same name. Used in the Services Toolbox Cancel feature.</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.IsCancellationAllowed__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the value of the Product record field of the same name. Used in the Services Toolbox Cancel feature.</inlineHelpText>
+        <label>Allow Cancellation?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Item_Receipt_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Netsuite Item Receipt record &quot;Out to Customer&quot; was successfully created. Occurs on kit shipment from kit supplier.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Netsuite Item Receipt record &quot;Out to Customer&quot; was successfully created. Occurs on kit shipment from kit supplier.</inlineHelpText>
+        <label>Item Receipt Created</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Item_Receipt_ID__c</fullName>
+        <description>Captures the Item Receipt internal ID.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the Item Receipt internal ID.</inlineHelpText>
+        <label>Item Receipt ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Kit barcode supplied by Kit Vendor</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Kit barcode supplied by Kit Vendor</inlineHelpText>
+        <label>Kit ID (Raw)</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_ID_formatted__c</fullName>
+        <description>Formatted version of the Kit Barcode ID that includes dashes. This is a formula field that looks to the Kit_ID__c field where the data for Kit ID is directly entered without dashes.</description>
+        <externalId>false</externalId>
+        <formula>LEFT(Kit_ID__c,3)&amp; &quot;-&quot;&amp; MID(Kit_ID__c,4,4) &amp; &quot;-&quot;&amp; RIGHT(Kit_ID__c,3)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Formatted version of the Kit Barcode ID that includes dashes. This is a formula field that looks to the Kit_ID__c field where the data for Kit ID is directly entered without dashes.</inlineHelpText>
+        <label>Kit ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Addr1__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Addr1</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Addr2__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Addr2</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_City__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order City</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Company__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Company</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Country__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Country</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Error_Detail__c</fullName>
+        <description>Error details related to the Order, if applicable, supplied by DNA Kit Supplier</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Error details related to the Order, if applicable, supplied by DNA Kit Supplier</inlineHelpText>
+        <label>Kit Order Error Detail</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_ID__c</fullName>
+        <description>Order ID supplied by Kit Supplier</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Order ID supplied by Kit Supplier</inlineHelpText>
+        <label>Kit Order ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Phone__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Postal_Code__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Postal Code</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Region__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Region</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Secondary_ID__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Order Secondary ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Shipped__c</fullName>
+        <description>&quot;Shipped&quot; Date as supplied by DNAG via Boom Integration +9hrs via WFR</description>
+        <externalId>false</externalId>
+        <inlineHelpText>&quot;Shipped&quot; Date as supplied by DNAG via Boom Integration +9hrs via WFR</inlineHelpText>
+        <label>Kit Order Shipped</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Status_Number__c</fullName>
+        <description>This number formula is used to convert the Kit Order Status field to a numeral for use by the Order record, via Rollup Summary Field, to show the Status on the Order.</description>
+        <externalId>false</externalId>
+        <formula>IF(LEN(  Netsuite_Work_Order_Number__c )=0 &amp;&amp; NOT(ISBLANK( Kit_Order_Timestamp__c )),2,
+IF(LEN( Netsuite_Work_Order_Number__c)=0 &amp;&amp; ISBLANK( Kit_Order_Timestamp__c ),1,
+IF(LEN( Netsuite_Work_Order_Number__c )&gt;0 &amp;&amp; ISBLANK( Kit_Order_Timestamp__c ),3,
+IF(LEN( Netsuite_Work_Order_Number__c)&gt;0 &amp;&amp; NOT(ISBLANK( Kit_Order_Timestamp__c )) &amp;&amp; LEN( Item_Receipt_ID__c)=0, 4, 
+IF(LEN( Netsuite_Work_Order_Number__c)&gt;0 &amp;&amp; NOT(ISBLANK( Kit_Order_Timestamp__c )) &amp;&amp; LEN( Item_Receipt_ID__c )&gt;0 &amp;&amp; NOT(ISBLANK( Kit_Order_Shipped__c )) &amp;&amp; ISBLANK( Registered_Date__c ) , 5,  
+IF(NOT(ISBLANK( Registered_Date__c )) &amp;&amp; ISBLANK( First_Accessioning_Scan__c ), 6,
+IF(NOT(ISBLANK( First_Accessioning_Scan__c )) &amp;&amp; ISBLANK(  DNA_Extraction_Start_Date__c  ) &amp;&amp;  Inventory_Transfer_Created__c = FALSE, 7,
+IF(NOT(ISBLANK( First_Accessioning_Scan__c )) &amp;&amp; ISBLANK( DNA_Extraction_Start_Date__c  ) &amp;&amp; ISBLANK( Data_Delivery_Date__c) &amp;&amp;  Inventory_Transfer_Created__c = TRUE, 8, 
+IF(NOT(ISBLANK( First_Accessioning_Scan__c )) &amp;&amp; NOT(ISBLANK( DNA_Extraction_Start_Date__c  )) &amp;&amp; ISBLANK( Data_Delivery_Date__c), 9, 
+IF(NOT(ISBLANK( Data_Delivery_Date__c)), 10,
+0))))))))))</formula>
+        <inlineHelpText>This number formula is used to convert the Kit Order Status field to a numeral for use by the Order record, via Rollup Summary Field, to show the Status on the Order.</inlineHelpText>
+        <label>Kit Order Status Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Status__c</fullName>
+        <description>Order Status Supplied by Kit Supplier</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Order Status Supplied by Kit Supplier</inlineHelpText>
+        <label>Kit Order Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Submit</fullName>
+                    <default>false</default>
+                    <label>Submit</label>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                    <label>Pending</label>
+                </value>
+                <value>
+                    <fullName>Fulfillment</fullName>
+                    <default>false</default>
+                    <label>Fulfillment</label>
+                </value>
+                <value>
+                    <fullName>Shipped</fullName>
+                    <default>false</default>
+                    <label>Shipped</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+                <value>
+                    <fullName>Registered</fullName>
+                    <default>false</default>
+                    <label>Registered</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Timestamp__c</fullName>
+        <description>Order submission timestamp supplied by Kit Supplier</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Order submission timestamp supplied by Kit Supplier</inlineHelpText>
+        <label>Kit Order Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Kit_Order_Updated__c</fullName>
+        <description>Date/Time of the last update for a kit order, supplied by the kit vendor.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date/Time of the last update for a kit order, supplied by the kit vendor.</inlineHelpText>
+        <label>Kit Order Updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Kit_Resend_Reason__c</fullName>
+        <description>Captures the customer&apos;s reason for requesting a Kit Resend. A required field from the Services Toolbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the customer&apos;s reason for requesting a Kit Resend. A required field from the Services Toolbox.</inlineHelpText>
+        <label>Kit Resend Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sample Issue</fullName>
+                    <default>false</default>
+                    <label>Sample Issue</label>
+                </value>
+                <value>
+                    <fullName>Preservative Issue</fullName>
+                    <default>false</default>
+                    <label>Preservative Issue</label>
+                </value>
+                <value>
+                    <fullName>Registration Issue</fullName>
+                    <default>false</default>
+                    <label>Registration Issue</label>
+                </value>
+                <value>
+                    <fullName>Failed QC</fullName>
+                    <default>false</default>
+                    <label>Failed QC</label>
+                </value>
+                <value>
+                    <fullName>Shipping Issue</fullName>
+                    <default>false</default>
+                    <label>Shipping Issue</label>
+                </value>
+                <value>
+                    <fullName>Sequencing Fail</fullName>
+                    <default>false</default>
+                    <label>Sequencing Fail</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Accessioning Fail</fullName>
+                    <default>false</default>
+                    <label>Accessioning Fail</label>
+                </value>
+                <value>
+                    <fullName>Fail QC</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Fail QC</label>
+                </value>
+                <value>
+                    <fullName>Fail accessioning / sequencing</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Fail accessioning / sequencing</label>
+                </value>
+                <value>
+                    <fullName>Kit broken by customer</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Kit broken by customer</label>
+                </value>
+                <value>
+                    <fullName>Kit lost in transit</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Kit lost in transit</label>
+                </value>
+                <value>
+                    <fullName>Kit lost in transit on way to Lab</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Kit lost in transit on way to Lab</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Kit_Ship_To_First_Name__c</fullName>
+        <description>Value returned by Kit Supplier Order Submission Portal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value returned by Kit Supplier Order Submission Portal</inlineHelpText>
+        <label>Kit Ship To First Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Ship_To_Last_Name__c</fullName>
+        <description>Value Supplied by Kit Supplier Order Interface</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value Supplied by Kit Supplier Order Interface</inlineHelpText>
+        <label>Kit Ship To Last Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Shipment_Lead_Time_Days__c</fullName>
+        <description>Days from &quot;Kit Order Timestamp&quot; (order receipt) by DNAG to &quot;Kit Order Shipped&quot;</description>
+        <externalId>false</externalId>
+        <formula>Kit_Order_Shipped__c - Kit_Order_Timestamp__c</formula>
+        <inlineHelpText>Days from &quot;Kit Order Timestamp&quot; (order receipt) by DNAG to &quot;Kit Order Shipped&quot;</inlineHelpText>
+        <label>Kit Shipment Lead Time(Days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Kit_Shipped_Status_Date__c</fullName>
+        <description>Date/Time when Kit Order Status is changed to &quot;Shipped&quot;. Will only update this field if blank.(via WFR)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date/Time when Kit Order Status is changed to &quot;Shipped&quot;. Will only update this field if blank.(via WFR)</inlineHelpText>
+        <label>Kit Shipped Status Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Last_Accessioning_Scan__c</fullName>
+        <description>Date/Time of last accessioning scan into accessioning module</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date/Time of last accessioning scan into accessioning module</inlineHelpText>
+        <label>Last Accessioning Scan</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <description>Location where DNA Kit is scanned for accessioning. Populated based on Accession Location value on User.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Location where DNA Kit is scanned for accessioning. Populated based on Accession Location value on User.</inlineHelpText>
+        <label>Accession Location</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>San Diego : Production Floor</fullName>
+                    <default>false</default>
+                    <label>San Diego : Production Floor</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Manifest_Upload_Date__c</fullName>
+        <description>Captures Date/Time when Sample Status is set to Manifest Uploaded. Populated via Boomi Integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures Date/Time when Sample Status is set to Manifest Uploaded. Populated via Boomi Integration.</inlineHelpText>
+        <label>Manifest Upload Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>NS_Integration_Retries__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Counter of number of automated NS integration retries attempted
+Only certain specific error messages trigger retries.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Counter of number of automated NS integration retries attempted
+Only certain specific error messages trigger retries.</inlineHelpText>
+        <label>NS Integration Retries</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Narwhal_Alpha__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates this is a narwhal alpha kit line. Used for lab alert workflow.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates this is a narwhal alpha kit line. Used for lab alert workflow.</inlineHelpText>
+        <label>Narwhal Alpha</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Net_Amount__c</fullName>
+        <description>Calculates the Net Amount that remains from the Unit Price after refunds are accounted for.</description>
+        <externalId>false</externalId>
+        <formula>IF(Total_Amount_Refunded__c &lt;&gt;0, UnitPrice -  Total_Amount_Refunded__c, UnitPrice )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Calculates the Net Amount that remains from the Unit Price after refunds are accounted for.</inlineHelpText>
+        <label>Net Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Netsuite_Integration_Error_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Netsuite Integration Error Details</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Netsuite_Purchase_Order_Number__c</fullName>
+        <description>TranID supplied by Netsuite</description>
+        <externalId>false</externalId>
+        <inlineHelpText>TranID supplied by Netsuite</inlineHelpText>
+        <label>Netsuite Purchase Order Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Netsuite_Work_Order_Number__c</fullName>
+        <description>TranID Supplied by Netsuite</description>
+        <externalId>false</externalId>
+        <inlineHelpText>TranID Supplied by Netsuite</inlineHelpText>
+        <label>Netsuite Work Order Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OB_Tracking_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( Carrier__c ,
+&quot;Fedex&quot;,
+HYPERLINK(&quot;https://www.fedex.com/insight/findit/nrp.jsp?tracknumbers=&quot;&amp; Outbound_Tracking_Number__c,Outbound_Tracking_Number__c),
+
+&quot;UPS&quot;,
+HYPERLINK(&quot;http://wwwapps.ups.com/WebTracking/processInputRequest?tracknum=&quot;&amp; Outbound_Tracking_Number__c &amp; &quot;&amp;track.x=32&amp;track.y=7&quot;, Outbound_Tracking_Number__c) ,
+
+&quot;USPS&quot;,
+HYPERLINK(&quot;http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=&quot; &amp; Outbound_Tracking_Number__c,Outbound_Tracking_Number__c), &quot;&quot;)</formula>
+        <label>Outbound Tracking Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OrderId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Order_Product_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Order Product Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Product_Status__c</fullName>
+        <description>The primary Status field for this Order Product. It has values for Active, Cancelled, Resent, and Completed. Often set by automation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The primary Status field for this Order Product. It has values for Active, Cancelled, Resent, and Completed. Often set by automation.</inlineHelpText>
+        <label>Order Product Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Resent</fullName>
+                    <default>false</default>
+                    <label>Resent</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OriginalOrderItemId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Outbound_Tracking_Number__c</fullName>
+        <description>Tracking number supplied by kit supplier for shipment from supplier to end user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tracking number supplied by kit supplier for shipment from supplier to end user.</inlineHelpText>
+        <label>Outbound Tracking Number</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prep_Request__c</fullName>
+        <externalId>false</externalId>
+        <formula>text( PricebookEntry.Product2.Prep_Request__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Prep Request</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Previous_Accessioning_Status__c</fullName>
+        <description>Captures prior value of the Accessioning Status field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures prior value of the Accessioning Status field.</inlineHelpText>
+        <label>Previous Accessioning Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>ProductCode_forIntegrations__c</fullName>
+        <description>This field is necessary to pull through Product Code for manifest submission</description>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.ProductCode</formula>
+        <label>ProductCode_forIntegrations</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Name__c</fullName>
+        <description>Applies to kit products only. Required field for Sample Manifest export integration. Project Name is generated for Kit Order Product Lines when Accession Status = PASS. The project name is the date of the Monday in the week the kit passes accessioning and the sample manifest is submitted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applies to kit products only. Required field for Sample Manifest export integration. Project Name is generated for Kit Order Product Lines when Accession Status = PASS. The project name is the date of the Monday in the week the kit passes accessioning</inlineHelpText>
+        <label>Project Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Purchase_Order_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( ISBLANK( Purchase_Order__c ),&quot;&quot;, &quot;https://system.na2.netsuite.com/app/accounting/transactions/purchord.nl?id=&quot;&amp;Purchase_Order__c &amp;&quot;&amp;whence=&quot;)</formula>
+        <label>Purchase Order URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Purchase_Order__c</fullName>
+        <description>Netsuite Internal ID for Purchase Order created in Netsuite for kit lines</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Netsuite Internal ID for Purchase Order created in Netsuite for kit lines</inlineHelpText>
+        <label>Purchase Order ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>QuoteLineItemId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RTRN_Tracking_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;http://trkcnfrm1.smi.usps.com/PTSInternetWeb/InterLabelInquiry.do?origTrackNum=&quot;&amp;  Return_Tracking_Number__c  , Return_Tracking_Number__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Return Tracking Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Registered_Date__c</fullName>
+        <description>Date/Time Order Line is registered to a user</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date/Time Order Line is registered to a user</inlineHelpText>
+        <label>Registered Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Required_Yield__c</fullName>
+        <description>Required Yield in GB. Applies to kit products only. Required field for Sample Manifest export integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required Yield in GB. Applies to kit products only. Required field for Sample Manifest export integration.</inlineHelpText>
+        <label>Required Yield</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resend_Original_Kit__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>If populated, this Order Product is a replacement for the Original Kit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If populated, this Order Product is a replacement for the Original Kit.</inlineHelpText>
+        <label>Resend: Original Kit</label>
+        <referenceTo>OrderItem</referenceTo>
+        <relationshipLabel>Order Products</relationshipLabel>
+        <relationshipName>Order_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Return_Tracking_Number__c</fullName>
+        <description>Tracking number supplied by kit supplier for shipment from end user to lab.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tracking number supplied by kit supplier for shipment from end user to lab.</inlineHelpText>
+        <label>Return Tracking Number</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Container_Name__c</fullName>
+        <description>Populated via SFDC - LIMS integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated via SFDC - LIMS integration</inlineHelpText>
+        <label>SAL Container Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAL_Well_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>SAL Well Location</label>
+        <length>3</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sample_Error_Detail__c</fullName>
+        <description>For capturing any error detail related to the Sample process. BaseSpace integration and beyond.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For capturing any error detail related to the Sample process. BaseSpace integration and beyond.</inlineHelpText>
+        <label>Sample Error Detail</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sample_Source__c</fullName>
+        <externalId>false</externalId>
+        <formula>text( PricebookEntry.Product2.Sample_Source__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sample Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sample_Status_Updated__c</fullName>
+        <description>Last date/time that the sample status was updated. Updated via code, not WFR.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last date/time that the sample status was updated. Updated via code, not WFR.</inlineHelpText>
+        <label>Sample Status Updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sample_Status__c</fullName>
+        <description>Sample status labels as a sample moves through the sequencing process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sample status labels as a sample moves through the sequencing process.</inlineHelpText>
+        <label>Sample Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ready for Submission</fullName>
+                    <default>false</default>
+                    <label>Ready for Submission</label>
+                </value>
+                <value>
+                    <fullName>Manifest Uploaded</fullName>
+                    <default>false</default>
+                    <label>Manifest Uploaded</label>
+                </value>
+                <value>
+                    <fullName>DNA Extraction Started</fullName>
+                    <default>false</default>
+                    <label>DNA Extraction Started</label>
+                </value>
+                <value>
+                    <fullName>DNA Extraction Complete</fullName>
+                    <default>false</default>
+                    <label>DNA Extraction Complete</label>
+                </value>
+                <value>
+                    <fullName>Library Prep Complete</fullName>
+                    <default>false</default>
+                    <label>Library Prep Complete</label>
+                </value>
+                <value>
+                    <fullName>Enrichment Complete</fullName>
+                    <default>false</default>
+                    <label>Enrichment Complete</label>
+                </value>
+                <value>
+                    <fullName>Clustering Complete</fullName>
+                    <default>false</default>
+                    <label>Clustering Complete</label>
+                </value>
+                <value>
+                    <fullName>Rehyb/Fail FC</fullName>
+                    <default>false</default>
+                    <label>Rehyb/Fail FC</label>
+                </value>
+                <value>
+                    <fullName>Sequencing Complete</fullName>
+                    <default>false</default>
+                    <label>Sequencing Complete</label>
+                </value>
+                <value>
+                    <fullName>Sequencing Data QC Complete</fullName>
+                    <default>false</default>
+                    <label>Sequencing Data QC Complete</label>
+                </value>
+                <value>
+                    <fullName>Sequencing Data QC Fail</fullName>
+                    <default>false</default>
+                    <label>Sequencing Data QC Fail</label>
+                </value>
+                <value>
+                    <fullName>Data Delivery Complete</fullName>
+                    <default>false</default>
+                    <label>Data Delivery Complete</label>
+                </value>
+                <value>
+                    <fullName>Data Delivery Fail</fullName>
+                    <default>false</default>
+                    <label>Data Delivery Fail</label>
+                </value>
+                <value>
+                    <fullName>Requeue to Saliva Tube</fullName>
+                    <default>false</default>
+                    <label>Requeue to Saliva Tube</label>
+                </value>
+                <value>
+                    <fullName>Require New Sample</fullName>
+                    <default>false</default>
+                    <label>Require New Sample</label>
+                </value>
+                <value>
+                    <fullName>Error</fullName>
+                    <default>false</default>
+                    <label>Error</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Select_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This checkbox shouldn&apos;t be visible in Order Product&apos;s layout. It is used in Accessioning App, only.</description>
+        <externalId>false</externalId>
+        <label>Select Product</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ServiceDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Service_Level_Customer_Facing__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case(Service_Level__c , 
+&quot;First_class&quot;,&quot;First Class&quot;, 
+&quot;priority&quot;,&quot;Priority&quot;, 
+&quot;standard_overnight&quot;,&quot;Standard Overnight&quot;, 
+&quot;first_overnight&quot;,&quot;First Overnight&quot;, 
+&quot;priority_overnight&quot;,&quot;Priority Overnight&quot;, 
+&quot;ground&quot;,&quot;Ground&quot;, 
+&quot;home_delivery&quot;,&quot;Home Delivery&quot;, 
+&quot;express_saver&quot;,&quot;Express Saver&quot;, 
+&quot;2-day&quot;,&quot;2-Day&quot;, 
+&quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Service Level (Customer Facing)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Level__c</fullName>
+        <description>Shipping Service Level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Shipping Service Level</inlineHelpText>
+        <label>Service Level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Service_Level</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ShipTo_Contact__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Required for Email Alerts triggered at the Order Item level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required for Email Alerts triggered at the Order Item level.</inlineHelpText>
+        <label>ShipTo Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Order Products (ShipTo Contact)</relationshipLabel>
+        <relationshipName>Order_Products_ShipTo</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shipping_Handling_Amount__c</fullName>
+        <description>This formula captures the Net Amount field when a Shipping &amp; Handling product is entered. This field is part of a Rollup Summary field to the Order record to assist in calculating possible Refund amounts in the Services Toolbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This formula captures the Net Amount field when a Shipping &amp; Handling product is entered. This field is part of a Rollup Summary field to the Order record to assist in calculating possible Refund amounts in the Services Toolbox.</inlineHelpText>
+        <label>Shipping &amp; Handling Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>Total_Amount_Refunded__c</fullName>
+        <description>This field is a tally of all Refund Order Event Item records attached to this Order Product. It is used to help identify the Net Amount that may remain for future refunds.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is a tally of all Refund Order Event Item records attached to this Order Product. It is used to help identify the Net Amount that may remain for future refunds.</inlineHelpText>
+        <label>Total Amount Refunded</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Formula field that looks up to product record and describes product type on the Order Product level. (APP or KIT)</description>
+        <externalId>false</externalId>
+        <formula>text(PricebookEntry.Product2.Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Formula field that looks up to product record and describes product type on the Order Product level. (APP or KIT)</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>UserId__c</fullName>
+        <externalId>false</externalId>
+        <formula>registeredBy__r.userid__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UserId</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Well_Location__c</fullName>
+        <description>Well location of kit in accessioning lab.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Well location of kit in accessioning lab.</inlineHelpText>
+        <label>Well Location</label>
+        <length>3</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Order_Close_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Set to TRUE by boomi when successfully created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set to TRUE by boomi when successfully created</inlineHelpText>
+        <label>Work Order Close Created</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Work_Order_Close_ID__c</fullName>
+        <description>Internal Work Order Close ID delivered from Netsuite via boomi integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal Work Order Close ID delivered from Netsuite via boomi integration</inlineHelpText>
+        <label>Work Order Close ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Order_Completion_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Netsuite Work Order Completion record was successfully created. Occurs when Sample Status is set to &quot;Data Delivery Complete&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Netsuite Work Order Completion record was successfully created. Occurs when Sample Status is set to &quot;Data Delivery Complete&quot;</inlineHelpText>
+        <label>Work Order Completion Created</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Work_Order_Completion_ID__c</fullName>
+        <description>Captures the NS Work Order Completion internal ID.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the NS Work Order Completion internal ID.</inlineHelpText>
+        <label>Work Order Completion ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Order_Issue_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Netsuite Work Order Issue record was successfully created. Occurs when Sample Status is set to &quot;DNA Extraction Started&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Netsuite Work Order Issue record was successfully created. Occurs when Sample Status is set to &quot;DNA Extraction Started&quot;</inlineHelpText>
+        <label>Work Order Issue Created</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Work_Order_Issue_ID__c</fullName>
+        <description>Captures the NS Work Order Issue internal ID.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the NS Work Order Issue internal ID.</inlineHelpText>
+        <label>Work Order Issue ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Order_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( ISBLANK( Work_Order__c ),&quot;&quot;, &quot;https://system.na2.netsuite.com/app/accounting/transactions/workord.nl?id=&quot;&amp; Work_Order__c &amp;&quot;&amp;whence=&quot;)</formula>
+        <label>Work Order URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Order__c</fullName>
+        <description>Netsuite Internal ID for Purchase Order created in Netsuite for kit lines</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Netsuite Internal ID for Purchase Order created in Netsuite for kit lines</inlineHelpText>
+        <label>Work Order ID</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>registeredBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Order Product level field to capture who registers a specific product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Order Product level field to capture who registers a specific product.</inlineHelpText>
+        <label>Registered By</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Order Products (Registered By)</relationshipLabel>
+        <relationshipName>Registered_Kits_c</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <validationRules>
+        <fullName>Block_OP_Edits</fullName>
+        <active>true</active>
+        <description>Prevent unauthorized users from editing the OP Quantity or Price. This is needed because it&apos;s not possible to remove access to editing these fields for anyone who has edit access to Order Products without a custom VF solution</description>
+        <errorConditionFormula>AND( 
+NOT(OR(
+$User.ProfileId =&quot;00e36000000oZf1&quot;, 
+$User.ProfileId =&quot;00e36000000MSK9&quot;)),
+
+OR(
+PRIORVALUE(Quantity)&lt;&gt; Quantity,  
+PRIORVALUE(UnitPrice )&lt;&gt;UnitPrice )
+)</errorConditionFormula>
+        <errorMessage>Access Denied. Please contact a Salesforce Administrator.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Services_Toolbox</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Services Toolbox</masterLabel>
+        <openType>replace</openType>
+        <page>OrderItemToolbox</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

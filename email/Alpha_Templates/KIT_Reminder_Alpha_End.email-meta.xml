@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>&quot;Alpha Ending&quot; Email</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>KIT Reminder(Alpha End)</name>
+    <style>none</style>
+    <subject>Helix Alpha Ending Soon - Complete Your Registration</subject>
+    <textOnly>Register &amp; Return Your Kits
+
+Thank you for participating in the Helix Alpha Program. We noticed that you haven’t registered and returned your Helix saliva collection kits. We’ll be closing the Alpha registration site on July 18th, so please register and return your kits before then. It&apos;s simple and easy, and should only take a few minutes.
+
+We have corrected issues relating to password reset that some participants previously encountered.  If you were one of these participants, we ask that you attempt to reset your password and register at this time.
+
+You can go to https://alpha.helix.com/start/ and follow the instructions to register your kit and mail the saliva sample back to us.
+
+If you have any questions, please email us at alpha@helix.com. Thank you again for your support!
+
+Cheers,
+
+The Helix Team
+
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

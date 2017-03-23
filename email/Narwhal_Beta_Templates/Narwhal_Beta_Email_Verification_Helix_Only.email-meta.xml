@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <description>Email requiring email verification with Helix. Sent as part of a user creating an account with Helix; will be triggered by user going through account registration.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Narwhal Beta Email Verification(Helix-Only)</name>
+    <style>none</style>
+    <subject>Welcome to Helix - Confirm Your Email</subject>
+    <textOnly>Welcome to Helix - Confirm Your Email
+
+Welcome and please confirm your email
+
+Thank you for creating an account with Helix!
+
+Helix’s mission is to empower every person to improve their life through DNA. We believe in a world where every person benefits from their biological information and is able to help all of humanity lead better lives.
+
+Please use the link below to verify your email. You will be taken back to Helix.com to complete the registration process.
+
+
+Click Here
+
+
+Thank you again for participating in the National Geographic Geno 2.0 and Helix Beta!
+
+If you have any questions or believe you’ve received this email in error, please email us at beta@helix.com.
+
+
+Cheers,
+
+Helix
+
+
+
+
+Contact us if you have any questions:
+beta@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

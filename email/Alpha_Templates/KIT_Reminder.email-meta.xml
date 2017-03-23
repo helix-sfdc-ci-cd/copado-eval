@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>3 weeks after users have completed the kit order process (whether they’ve created an account or not) but have not registered their kits</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>KIT Reminder</name>
+    <style>none</style>
+    <subject>Helix Alpha Kit Reminder</subject>
+    <textOnly>Kit Reminder
+
+We noticed that you haven’t registered your saliva sample collection kits yet. It’s simple and easy. Please go to alpha.helix.com/start and follow the instructions to register your kits and mail the two saliva samples back to us.
+
+If you have any questions or have not received your collection kits in the mail yet, please email alpha@helix.com. Thank you for your help in launching Helix.
+
+Cheers,
+
+The Helix Team
+
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

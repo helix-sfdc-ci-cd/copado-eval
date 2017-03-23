@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Green (on track to meet target launch)</fullName>
+        <default>false</default>
+        <label>Green (on track to meet target launch)</label>
+    </customValue>
+    <customValue>
+        <fullName>Yellow (behind or needs attention)</fullName>
+        <default>false</default>
+        <label>Yellow (behind or needs attention)</label>
+    </customValue>
+    <customValue>
+        <fullName>Red (strong risk for missing timeline)</fullName>
+        <default>false</default>
+        <label>Red (strong risk for missing timeline)</label>
+    </customValue>
+    <customValue>
+        <fullName>Gray (not started)</fullName>
+        <default>false</default>
+        <label>Gray (not started)</label>
+    </customValue>
+    <description>Used for on-Boarding Statuses</description>
+    <masterLabel>On-Boarding Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

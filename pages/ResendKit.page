@@ -1,0 +1,55 @@
+<apex:page controller="ResendKitCtrl">
+    <apex:form >
+        <apex:pageBlock title="Kit Resend">
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Original Order Id"></apex:outputLabel>
+                    <apex:outputField value="{!orderRecord.OrderNumber}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Kit to Send"></apex:outputLabel>
+                    <apex:selectList value="{!selectedKit}" size="1">
+                        <apex:selectOptions value="{!KitProducts}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Kit Resend Reason"></apex:outputLabel>
+                    <apex:inputField value="{!oi.Kit_Resend_Reason__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Kit Carrier"></apex:outputLabel>
+                    <apex:inputField value="{!clonedOrderItem.Carrier__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Kit Service Level"></apex:outputLabel>
+                    <apex:inputField value="{!clonedOrderItem.Service_Level__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Ship To Contact"></apex:outputLabel>
+                    <apex:inputField value="{!orderRecord.ShipToContactId}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Street"></apex:outputLabel>
+                    <apex:inputField value="{!orderRecord.ShippingStreet}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="City"></apex:outputLabel>
+                    <apex:inputField value="{!orderRecord.ShippingCity}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="State"></apex:outputLabel>
+                    <apex:inputField value="{!orderRecord.ShippingState}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Zip"></apex:outputLabel>
+                    <apex:inputField value="{!orderRecord.ShippingPostalCode}" required="true"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Send Kit" action="{!doSave}"/>
+                <apex:commandButton value="Cancel" action="{!doCancel}" immediate="true"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

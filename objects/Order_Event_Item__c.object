@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This is a detail record to the Order Event object, and is used for itemized amount calculations. These records are connected to the Order Product records for GL and Refund amounts, and are part of the ERP integration with Netstuite.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>App_Partner__c</fullName>
+        <description>Captures the App Partner field value from the Order record.</description>
+        <externalId>false</externalId>
+        <formula>Order__r.App_Partner__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the App Partner field value from the Order record.</inlineHelpText>
+        <label>App Partner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ERP_Record_ID__c</fullName>
+        <description>Captures the ID of the corresponding ERP record created by or linked to this Order Event Item record. When populated this will prevent future submissions of this record to the ERP system.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the ID of the corresponding ERP record created by or linked to this Order Event Item record. When populated this will prevent future submissions of this record to the ERP system.</inlineHelpText>
+        <label>ERP Record ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Event_Item_Counter__c</fullName>
+        <description>Returns a 1 for each Order Event Item record. Useful for reporting purposes.</description>
+        <externalId>false</externalId>
+        <formula>IF(LEN( Name )&gt;0,1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Returns a 1 for each Order Event Item record. Useful for reporting purposes.</inlineHelpText>
+        <label>Order Event Item Counter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Event_Type__c</fullName>
+        <description>Captures the Type field on the Order Event record.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Order_Event__r.Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the Type field on the Order Event record.</inlineHelpText>
+        <label>Order Event Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Event__c</fullName>
+        <description>Required Master-Detail field to the Order Event record. Enables Rollup Summary fields for refund and other amounts.  Set when an Order Event Item is created from the Services Toolbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required Master-Detail field to the Order Event record. Enables Rollup Summary fields for refund and other amounts.</inlineHelpText>
+        <label>Order Event</label>
+        <referenceTo>Order_Event__c</referenceTo>
+        <relationshipLabel>Order Event Item</relationshipLabel>
+        <relationshipName>Order_Events</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Order_Product_Type__c</fullName>
+        <description>Captures the Type field from the Order Product record. Used to calculate Refund Amount field.</description>
+        <externalId>false</externalId>
+        <formula>Order_Product__r.Type__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the Type field from the Order Product record. Used to calculate Refund Amount field.</inlineHelpText>
+        <label>Order Product Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Required lookup relationship to the Order Product record. This field enables the Declarative Rollup Summary lookup process that sums refund amounts from Order Event Item records to the Order Product record.  Set when an Order Event Item is created from the Services Toolbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required lookup relationship to the Order Product record. This field enables the Declarative Rollup Summary lookup process that sums refund amounts from Order Event Item records to the Order Product record.</inlineHelpText>
+        <label>Order Product</label>
+        <referenceTo>OrderItem</referenceTo>
+        <relationshipLabel>Order Event Item</relationshipLabel>
+        <relationshipName>Order_Event_Item</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Order__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Required lookup relationship field for Order record. Set when an Order Event Item is created from the Services Toolbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required lookup relationship field for Order record. Set when an Order Event Item is created from the Services Toolbox.</inlineHelpText>
+        <label>Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Order Event Item</relationshipLabel>
+        <relationshipName>Order_Event_Item</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Amount__c</fullName>
+        <description>In the case of a Refund Order Event, this field will be populated with a value calculated from the Net Amount field of the Order Product record it is connected to. This field is pulled by a Rollup Summary field to the Order Event record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In the case of a Refund Order Event, this field will be populated with a value calculated from the Net Amount field of the Order Product record it is connected to. This field is pulled by a Rollup Summary field to the Order Event record.</inlineHelpText>
+        <label>Refund Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Sourcing_Partner__c</fullName>
+        <description>Captures the name of the Partner Channel account from the BillTo Contact listed on the Order record.</description>
+        <externalId>false</externalId>
+        <formula>Order__r.BillToContact.Sourcing_Partner__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the name of the Partner Channel account from the BillTo Contact listed on the Order record.</inlineHelpText>
+        <label>Sourcing Partner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SuperOrder__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Required lookup field to the SuperOrder record.  Set when an Order Event Item is created from the Services Toolbox.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required lookup field to the SuperOrder record.</inlineHelpText>
+        <label>SuperOrder</label>
+        <referenceTo>SuperOrder__c</referenceTo>
+        <relationshipLabel>Order Event Item</relationshipLabel>
+        <relationshipName>Transaction_Items</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Order Event Item</label>
+    <nameField>
+        <displayFormat>OEI-{000000}</displayFormat>
+        <label>Order Event Item</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Order Event Item</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

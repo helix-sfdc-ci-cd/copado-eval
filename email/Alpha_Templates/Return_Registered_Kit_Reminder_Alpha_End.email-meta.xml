@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>&quot;Alpha Ending&quot; Email</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Return Registered Kit Reminder(Alpha End)</name>
+    <style>none</style>
+    <subject>Helix Alpha Ending Soon - Return Your Kits</subject>
+    <textOnly>Return Your Kits
+
+Thank you for participating in the Helix Alpha Program. We’ll be closing the Alpha Program on July 18th, so please mail back your saliva collection kits before then if you have not already. If you have mailed your kits, please disregard this email. The shipping is free for you, and the boxes already include prepaid labels, so all you have to do is drop them at a USPS location.
+
+Thanks again for your support. If you have any questions, please email us at alpha@helix.com.
+
+Cheers,
+
+The Helix Team
+
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

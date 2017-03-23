@@ -1,0 +1,2 @@
+<apex:page standardController="SuperOrder__c" extensions="SuperOrderToolboxCtrl" action="{!goToToolbox}">
+</apex:page>

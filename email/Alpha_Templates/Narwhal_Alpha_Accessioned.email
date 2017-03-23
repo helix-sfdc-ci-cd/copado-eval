@@ -1,0 +1,7 @@
+*** NARWHAL ALPHA KIT ACCESSION NOTIFICATION ***  
+
+The following Narwhal Alpha kit has arrived in accessioning.  
+Kit ID:  {!OrderItem.Kit_ID_formatted__c}
+Accession Scan Date: {!OrderItem.Last_Accessioning_Scan__c}
+
+Click on the link to access the item directly:  {!OrderItem.Link}

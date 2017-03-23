@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>1 weeks after users have received the welcome email but have not ordered a kit</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Order Reminder</name>
+    <style>none</style>
+    <subject>Helix Alpha Order Reminder</subject>
+    <textOnly>Order Reminder
+
+
+We noticed that you haven’t completed an order for Helix Alpha. If you’re still interested in participating, please click the link below to finish the process. It should be quick and easy.
+
+Let&apos;s get started
+https://alpha.helix.com/invite/{!Lead.Invitation_Code__c}/
+
+If you have any questions, please email us at alpha@helix.com. Thank you for your help in launching Helix.    
+
+Cheers,
+
+The Helix Team
+
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

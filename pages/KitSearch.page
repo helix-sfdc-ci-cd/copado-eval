@@ -1,0 +1,143 @@
+<apex:page showHeader="true" sidebar="false" controller="KitSearchController">
+
+    <apex:stylesheet value="{!URLFOR($Resource.KitSearch, 'bootstrap-3.3.7/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.KitSearch, 'bootstrap-3.3.7/css/bootstrap-theme.min.css')}"/>
+
+    <apex:includeScript value="{!URLFOR($Resource.KitSearch, 'jquery-3.1.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.KitSearch, 'bootstrap-3.3.7/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.KitSearch, 'angular-1.6.1/angular.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.KitSearch, 'ui-bootstrap-tpls-2.4.0.min.js')}"/>
+
+    <style>
+        body {
+            font-size: 110% !important;
+            font-weight: bold;
+        }
+    </style>
+
+    <div ng-app="KitSearch" ng-cloak="" ng-controller="KitSearchCtrl">
+
+        <div class="container-fluid">
+            <div class="row" style="margin-bottom: 1rem;">
+                <h2>Kit Search</h2>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="checkbox">
+                        Kit ID
+                        <label>
+                            <input type="checkbox" ng-model="checkModel.kitid"/>
+                        </label>
+                        List of Kit IDs
+                        <label>
+                            <input type="checkbox" ng-model="checkModel.kitlist"/>
+                        </label>
+                        Kit Order ID
+                        <label>
+                            <input type="checkbox" ng-model="checkModel.kitorderid"/>
+                        </label>
+                        Outbound Tracking Number
+                        <label>
+                            <input type="checkbox" ng-model="checkModel.outboundtracking"/>
+                        </label>
+                        Return Tracking Number
+                        <label>
+                            <input type="checkbox" ng-model="checkModel.returntracking"/>
+                        </label>
+                    </div>
+                    <input type="text" ng-model="searchString" ng-change="fetchKits()" placeHolder="Search for..." class="form-control"
+                           id="searchinput"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Super Order</th>
+                        <th>Order Number</th>
+                        <th>Kit ID</th>
+                        <th>Kit ID Formatted</th>
+                        <th>Location</th>
+                        <th>Kit Order Status</th>
+                        <th>Accessioning Status</th>
+                        <th>Hold Reason</th>
+                        <th>Last Accessioning Scan</th>
+                        <th>Box</th>
+                        <th>Well Location</th>
+                        <th>Order Type</th>
+                        <th>Kit Order ID</th>
+                        <th>Outbound Tracking Number</th>
+                        <th>Return Tracking Number</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="kit in searchResult" ng-click="tableClick(kit.Id)">
+                        <td>
+                            <a href="/{{kit['Order']['SuperOrder__r']['Id']}}">{{kit['Order']['SuperOrder__r']['Name']}}</a>
+                        </td>
+                        <td><a href="/{{kit['OrderId']}}">{{kit['Order']['Helix_Order_Number__c']}}</a></td>
+                        <td><a href="/{{kit['Id']}}">{{kit['Kit_ID__c']}}</a></td>
+                        <td>{{kit['Kit_ID_formatted__c']}}</td>
+                        <td>{{kit['Location__c']}}</td>
+                        <td>{{kit['Kit_Order_Status__c']}}</td>
+                        <td>{{kit['Accessioning_Status__c']}}</td>
+                        <td>{{kit['Hold_Reason__c']}}</td>
+                        <td>{{kit['Last_Accessioning_Scan__c'] | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{kit['Box__c']}}</td>
+                        <td>{{kit['Well_Location__c']}}</td>
+                        <td>{{kit['Order']['Type']}}</td>
+                        <td>{{kit['Kit_Order_ID__c']}}</td>
+                        <td>{{kit['Outbound_Tracking_Number__c']}}</td>
+                        <td>{{kit['Return_Tracking_Number__c']}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+// Angular controller below
+
+var app = angular.module('KitSearch', ['ui.bootstrap']);
+app.controller('KitSearchCtrl', function($scope) {
+    $scope.searchString = "";
+    $scope.searchResult;
+
+    $scope.checkModel = {
+        kitid: true,
+        kitlist: false,
+        kitorderid: false,
+        outboundtracking: false,
+        returntracking: false
+    };
+
+    $scope.logit = function() {
+        console.log($scope.checkModel);
+    }
+
+    // Function invoked from searchbox to controller for matching kits to display in list.
+	$scope.fetchKits = function(){
+    	KitSearchController.kitSearch($scope.searchString + '', $scope.checkModel, function(result, event) {
+            if (event.status == true) {
+                $scope.searchResult = result;
+                $scope.$apply();
+            } else {
+                alert('An error occurred while searching for Kits (' + event.message + ')');
+            }
+        });
+     };
+
+    // Function on click of list items to head over to OrderItem detail page.
+    $scope.tableClick = function(kitId) {
+        //alert(kitId);
+        window.location.href = ('/' + kitId);
+    }
+});
+
+    </script>
+
+</apex:page>

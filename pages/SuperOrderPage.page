@@ -1,0 +1,26 @@
+<apex:page standardController="SuperOrder__c" extensions="SuperOrderController" action="{!displayData}">
+   
+   <apex:pageBlock >
+      <apex:pageBlockTable value="{!orderItemList}" var="oli">
+         <apex:column >
+            <apex:facet name="header">Order Number</apex:facet>
+            <apex:outputLink value="/{!oli.OrderId}" target="_top">{!oli.Order.OrderNumber}</apex:outputLink>
+         </apex:column>
+         <apex:column >
+            <apex:facet name="header">Product Name</apex:facet>
+            <apex:outputLink value="/{!oli.Id}" target="_top">{!oli.PriceBookEntry.Product2.Name}</apex:outputLink>
+         </apex:column>
+         <apex:column value="{!oli.Kit_ID_formatted__c}"/>
+         <apex:column value="{!oli.Kit_Order_Status__c}"/>
+         <apex:column value="{!oli.Accessioning_Status__c}"/>
+         <apex:column value="{!oli.Sample_Status__c}"/>
+         <apex:column value="{!oli.registeredBy__c}"/>
+         <apex:column value="{!oli.Kit_Order_Updated__c}"/>
+         <apex:column value="{!oli.Last_Accessioning_Scan__c}"/>
+         <apex:column value="{!oli.Sample_Status_Updated__c}"/>
+         <apex:column value="{!oli.OB_Tracking_Link__c}"/>
+         <apex:column value="{!oli.RTRN_Tracking_Link__c}"/>
+      </apex:pageBlockTable>
+   </apex:pageBlock>
+
+</apex:page>

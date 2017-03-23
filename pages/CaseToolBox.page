@@ -1,0 +1,2 @@
+<apex:page standardController="Case" extensions="CaseToolboxCtrl" action="{!goToToolbox}">
+</apex:page>

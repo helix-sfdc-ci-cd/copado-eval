@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The Order Event object is used to capture events that happen to an Order, like Refund and Cancellation requests. This record is an integration point for the ERP system and there is a corresponding Netsuite object called Order Event that can be created when entered into Salesforce.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Cancellation_Date__c</fullName>
+        <description>Captures the Cancellation Date from the Order record for passing to Netsuite.</description>
+        <externalId>false</externalId>
+        <formula>Order__r.Cancellation_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the Cancellation Date from the Order record for passing to Netsuite.</inlineHelpText>
+        <label>Cancellation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Integration_Error_Message__c</fullName>
+        <description>If there is an error creating a record through Integration with Netsuite, the error message will appear here.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there is an error creating a record through Integration with Netsuite, the error message will appear here.</inlineHelpText>
+        <label>Integration Error Message</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Integration_Record_ID__c</fullName>
+        <description>Captures the ID of the record created in Netsuite for this Order Event.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the ID of the record created in Netsuite for this Order Event.</inlineHelpText>
+        <label>Integration Record ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsSuperOrderPaymentCapturedinNetsuite__c</fullName>
+        <description>Captures the SuperOrder field value for &quot;Payment Captured in Netsuite&quot;. Used in Boomi integration to Netsuite.</description>
+        <externalId>false</externalId>
+        <formula>SuperOrder__r.Payment_Captured_in_Netsuite__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the SuperOrder field value for &quot;Payment Captured in Netsuite&quot;. Used in Boomi integration to Netsuite.</inlineHelpText>
+        <label>SuperOrder Payment Captured in Netsuite</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Ready_For_ERP_Integration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When checked, this record will be picked up by Boomi and will send data to Netsuite.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, this record will be picked up by Boomi and will send data to Netsuite.</inlineHelpText>
+        <label>Is Ready for ERP Integration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Order_Event_Counter__c</fullName>
+        <description>Returns a 1 on each Order Event record, useful in reporting.</description>
+        <externalId>false</externalId>
+        <formula>IF(LEN( Name )&gt;0, 1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Returns a 1 on each Order Event record, useful in reporting.</inlineHelpText>
+        <label>Order Event Counter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Event_Item_Count__c</fullName>
+        <description>Tallies the number of connected Order Event Item records.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tallies the number of connected Order Event Item records.</inlineHelpText>
+        <label>Order Event Item Count</label>
+        <summaryForeignKey>Order_Event_Item__c.Order_Event__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Order_Status_for_ERP_Integration__c</fullName>
+        <description>Captures the Kit Order Product ERP Status field value for transmission to Boomi/Netsuite. This field determines which scripts are run in Netsuite.</description>
+        <externalId>false</externalId>
+        <formula>Order__r.Kit_Order_Product_ERP_Status__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the Kit Order Product ERP Status field value for transmission to Boomi/Netsuite.</inlineHelpText>
+        <label>Order Status for ERP Integration</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order__c</fullName>
+        <description>The Order record is a Master record and is required for each Order Event record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Order record is a Master record and is required for each Order Event record.</inlineHelpText>
+        <label>Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Order Events</relationshipLabel>
+        <relationshipName>Transactions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Payment_System_Customer_ID__c</fullName>
+        <description>Captures the Stripe Customer ID from the Super Order record for processing a refund, as needed.</description>
+        <externalId>false</externalId>
+        <formula>SuperOrder__r.Stripe_Customer_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the Stripe Customer ID from the Super Order record for processing a refund.</inlineHelpText>
+        <label>Payment System Customer ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_System_Transaction_ID__c</fullName>
+        <description>Captures the Transaction ID from the payment system for this Refund.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the Transaction ID from the payment system for this Refund.</inlineHelpText>
+        <label>Payment System Transaction ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_System_Transaction_Status__c</fullName>
+        <description>Captures the status of the Stripe refund request.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captures the status of the Stripe refund request.</inlineHelpText>
+        <label>Payment System Transaction Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Refund_Amount_Requested__c</fullName>
+        <description>The Amount of the submitted Refund request.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Amount of the submitted Refund request.</inlineHelpText>
+        <label>Refund Amount Requested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Type__c</fullName>
+        <description>User selected field for the type of Refund to process - &quot;Already Shipped&quot; would exclude $25 + cost of shipping from the refund, while Full is a refund of all Order Products.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User selected field for the type of Refund to process - &quot;Already Shipped&quot; would exclude $25 + cost of shipping from the refund, while Full is a refund of all Order Products.</inlineHelpText>
+        <label>Refund Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Already Shipped</fullName>
+                    <default>false</default>
+                    <label>Already Shipped</label>
+                </value>
+                <value>
+                    <fullName>Full</fullName>
+                    <default>false</default>
+                    <label>Full</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Order_ID__c</fullName>
+        <description>Captures the Netsuite Sales Order ID field from the Order record.</description>
+        <externalId>false</externalId>
+        <formula>Order__r.Netsuite_Sales_Order_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Captures the Netsuite Sales Order ID field from the Order record.</inlineHelpText>
+        <label>Sales Order ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SuperOrder__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Link to SuperOrder record, required to make Declarative Rollup Summary feature work properly.</description>
+        <externalId>false</externalId>
+        <label>SuperOrder</label>
+        <referenceTo>SuperOrder__c</referenceTo>
+        <relationshipLabel>Order Events</relationshipLabel>
+        <relationshipName>Transactions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Refund_Amount__c</fullName>
+        <description>Tallies the amounts entered on any Order Event Item records.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tallies the amounts entered on any Order Event Item records.</inlineHelpText>
+        <label>Total Refund Amount</label>
+        <summarizedField>Order_Event_Item__c.Refund_Amount__c</summarizedField>
+        <summaryForeignKey>Order_Event_Item__c.Order_Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>The Type field tells Netsuite what to do when an Order Event record is created. Each of the types will complete different tasks in Netsuite.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Type field tells Netsuite what to do when an Order Event record is created. Each of the types will complete different tasks in Netsuite.</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Order Placement</fullName>
+                    <default>false</default>
+                    <label>Order Placement</label>
+                </value>
+                <value>
+                    <fullName>Cancel</fullName>
+                    <default>false</default>
+                    <label>Cancel</label>
+                </value>
+                <value>
+                    <fullName>Refund</fullName>
+                    <default>false</default>
+                    <label>Refund</label>
+                </value>
+                <value>
+                    <fullName>Cancel &amp; Refund</fullName>
+                    <default>false</default>
+                    <label>Cancel &amp; Refund</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Order Event</label>
+    <nameField>
+        <displayFormat>OE-{000000}</displayFormat>
+        <label>Order Event</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Order Events</pluralLabel>
+    <searchLayouts>
+        <excludedStandardButtons>New</excludedStandardButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+</CustomObject>

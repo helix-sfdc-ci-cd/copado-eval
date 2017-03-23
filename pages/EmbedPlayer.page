@@ -1,0 +1,8 @@
+<!-- Allows embedding call recordings in Activities -->
+<apex:page showHeader="false" sidebar="false" standardController="Task">
+
+<apex:outputPanel id="theFrame">
+    <apex:iframe src="https://cloud17.contact-world.net/callcentre/callAnalytics/CallRecordingComments.aspx?guid={!Task.CallObject}" scrolling="true" id="theIframe"/>
+</apex:outputPanel>
+                          
+</apex:page>

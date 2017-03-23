@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Alpha welcome email sent to user via manually triggered mass Lead email. Contains unique URL for kit request.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Welcome To Helix_Final</name>
+    <style>none</style>
+    <subject>Welcome to the Helix Alpha Program</subject>
+    <textOnly>Welcome to Helix Alpha
+
+Thank you for your support as we build an exciting personal genomics platform to help you explore your DNA.
+
+Let&apos;s get started
+https://alpha.helix.com/invite/{!Lead.Invitation_Code__c}/
+
+
+You’ll be helping us test the process of ordering a kit and saliva sample collection. It should be quick and easy, and we look forward to hearing your thoughts and feedback.
+
+Cheers,
+
+The Helix Team
+
+Helix Alpha FAQs
+https://alpha.helix.com/faq/
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

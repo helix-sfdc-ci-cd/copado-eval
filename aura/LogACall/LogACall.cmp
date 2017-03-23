@@ -1,0 +1,57 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="NVMContactWorld.LightningLogACallController" access="global">
+  <ltng:require scripts='/resource/NVMContactWorld__Assets/contactpad.js' afterScriptsLoaded="{!c.wireUpCallbacks}"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="logACallModel" type="NVMContactWorld.LightningLogACallViewModel" />
+
+	<div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+		<form class="slds-form--stacked slds-grow">
+            
+            <div class="slds-page-header" role="banner">
+              <div class="slds-media slds-media--center">
+                <div class="slds-media__figure">
+                    <NVMContactWorld:svg svgPath="/resource/NVMContactWorld__Assets/assets/lightning-standard-icons.svg#log_a_call" class="slds-icon slds-icon-standard-log-a-call"/>
+                </div>
+                <div class="slds-media__body">
+                  <p class="slds-page-header__title slds-truncate slds-align-middle" title="Log A Call">Log A Call</p>
+                </div>
+              </div>
+            </div>           
+            <div class="slds-panel__section slds-has-divider--bottom">
+                <div aura:id="noteInputDiv" class="slds-form-element slds-is-required">
+                    <div class="slds-form-element__control">
+                        <ui:inputTextArea aura:id="noteInputTextArea"
+                                          label="Call Notes" 
+                                          class="slds-textarea" 
+                                          labelClass="slds-form-element__label"
+                                          value="{!v.logACallModel.Note}" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-panel__actions slds-has-divider--bottom">
+                <div class="slds-form-element slds-is-required">
+                    <div class="slds-grid">
+                      <div class="slds-col">
+                        <NVMContactWorld:CallNotesLinker linkTarget="who" linkObjectId="{!v.logACallModel.WhoId}" linkObjectName="{!v.logACallModel.WhoName}" linkObjectType="{!v.logACallModel.WhoType}" />
+                      </div>
+                      <div class="slds-col">
+                        <NVMContactWorld:CallNotesLinker linkTarget="what" linkObjectId="{!v.logACallModel.WhatId}" linkObjectName="{!v.logACallModel.WhatName}" linkObjectType="{!v.logACallModel.WhatType}" />
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-panel__actions slds-has-divider--bottom">
+                <div class="slds-form-element slds-is-required">
+                    <div class="slds-form-element__control slds-grid slds-grid--align-end">
+                        <ui:button aura:id="noteSaveButton"
+                        		   class="slds-button slds-button--brand"
+                                   label="Save"
+                                   disabled=""
+                                   press="{!c.save}" />
+                    </div>
+                </div>
+            </div>
+        </form>
+	</div>
+</aura:component>

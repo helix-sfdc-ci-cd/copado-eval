@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Internal notification to when narwhal alpha kit is accessioned</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Narwhal Alpha:  Accessioned</name>
+    <style>none</style>
+    <subject>Narwhal Alpha Kit Accessioned:  {!OrderItem.Kit_ID_formatted__c}</subject>
+    <type>text</type>
+</EmailTemplate>

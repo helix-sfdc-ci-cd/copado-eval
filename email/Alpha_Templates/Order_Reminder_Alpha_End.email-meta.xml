@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>&quot;Alpha Ending&quot; Email</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Order Reminder(Alpha End)</name>
+    <style>none</style>
+    <subject>Helix Alpha Ending Soon - Complete Your Order</subject>
+    <textOnly>Order Reminder
+
+Thank you for your interest in participating in the Helix Alpha Program. We’ll be closing the Alpha on July 8th, so if you’re still interested in participating, please click the link below. It should be quick and easy.
+
+Let&apos;s get started
+https://alpha.helix.com/invite/{!Lead.Invitation_Code__c}/
+
+If you have any questions or have had any issues going through the order process, please email us at alpha@helix.com.
+
+Cheers,
+
+The Helix Team
+
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

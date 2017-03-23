@@ -1,0 +1,128 @@
+<apex:component controller="OrderController" access="global">
+    <apex:attribute name="superOrderId" type="String" assignTo="{!soId}" description="Super Order Record Id"/>
+    
+    <html>
+<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<body style="background-color:#FAFAFA;color:#373837;width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;">
+    <div style="text-align:center;max-width:620px;background-color:#FAFAFA;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;color:#777777;Margin:0 auto;">
+    
+        <table style="Margin:auto;width:100%;padding:20px;border:none;vertical-align:top;">
+            <tr>
+                <td style="width:50%;text-align:center;border-right:1px solid #DADADA;">
+                    <a href="https://www.helix.com" target="_blank"><img src="https://c.na30.content.force.com/servlet/servlet.ImageServer?id=01536000001Ttqm&oid=00D36000000Jv1T&lastMod=1479179396000" width="95" height="23" style="width:95px;height:23px;text-align:center;Margin:10px auto;" alt="Helix" /></a>
+                </td>
+                <td style="width:50%;text-align:center;">
+                    <a href="https://genographic.nationalgeographic.com/" target="_blank"><img src="https://c.na30.content.force.com/servlet/servlet.ImageServer?id=01536000001Ttqo&oid=00D36000000Jv1T&lastMod=1479179396000" style="width:102px;height:30px;text-align:center;Margin:10px auto;" alt="National Geographic" /></a>
+                </td>
+            </tr>
+        </table>
+        
+        <div style="Margin:auto 10px 10px;text-align:left;max-width:600px;background-color:#FFFFFF;border:1px solid #DADADA;font-size:15px;color:#373837;">
+        
+            <img src="https://c.na30.content.force.com/servlet/servlet.ImageServer?id=01536000001Ttqn&oid=00D36000000Jv1T&lastMod=1479179396000" style="width:100%;text-align:center;Margin:0;" />
+
+            <div style="Margin:7%;">
+
+                <p style="text-align:center;"><span style="font-family:Georgia,serif;font-size:22pt;">Order confirmation</span></p>
+    
+                <p style="margin:40px auto 20px;">Hi {!orderDetails.billToContactName},</p>
+                <p style="line-height:27px;">Thanks for ordering {!OrderDetails.productName}. When your DNA collection {!if(orderDetails.numberOfKits > 1, 'kits ship', 'kit ships')}, we'll send you another email with tracking info.</p>
+                <p style="margin:40px auto;line-height:27px;">Need some help? Visit <a href="https://www.helix.com/support" style="text-decoration:none;color:#3CACF5;">helix.com/support</a>.</p>
+                
+                <p style="color:#777777;padding-bottom:10px;">The Helix Team + {!orderDetails.partnerChannel}</p>
+                
+            </div>
+
+        </div>
+
+        <div style="Margin:auto 10px;text-align:center;max-width:600px;background-color:#FFFFFF;border:1px solid #DBDAD9;font-size:15px;color:#474847;">
+        
+            <div style="Margin:7%;">
+
+                <p><span style="font-family:Georgia,serif;font-size:22pt;">Order details</span></p>
+    
+                <p style="color:#8A8A8A;Margin:0 auto 25px;">Order {!superOrder.Name}</p>
+            
+            </div>
+            
+            <div style="background-color:#FAFAFA;clear:all;padding:5%;">
+            
+                <table style="width:100%;padding:0px;border:none;vertical-align:top;">
+                    <tr>
+                        <td style="width:20%;vertical-align:top;"><img src="https://c.na30.content.force.com/servlet/servlet.ImageServer?id=01536000001Ttqp&oid=00D36000000Jv1T&lastMod=1479179396000" width="80" height="80"/></td>
+                        <td style="width:55%;vertical-align:top;text-align:left;"><p><strong>National Geographic<br />
+                            
+                            {!OrderDetails.productName}
+                            </strong></p>
+                          <p>Qty {!OrderDetails.quantity}</p></td>
+                        <td style="width:25%;vertical-align:top;text-align:right;"><p>${!OrderDetails.subTotal}</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="width:100%;height:30px;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="width:100%;height:0px;border-bottom:1px solid #DADADA;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="width:100%;height:30px;"></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;vertical-align:top;text-align:right;"></td>
+                        <td style="width:55%;vertical-align:top;text-align:right;"><p style="padding-bottom:5px;">Subtotal</p></td>
+                        <td style="width:25%;vertical-align:top;text-align:right;"><p style="padding-bottom:5px;">${!OrderDetails.subTotal}</p></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;vertical-align:top;text-align:right;"></td>
+                        <td style="width:55%;vertical-align:top;text-align:right;"><p style="padding-bottom:5px;">{!OrderDetails.shipType} Shipping</p></td>
+                        <td style="width:25%;vertical-align:top;text-align:right;"><p style="padding-bottom:5px;">${!OrderDetails.shippingCost}</p></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;vertical-align:top;text-align:right;"></td>
+                        <td style="width:55%;vertical-align:top;text-align:right;"><p style="padding-bottom:5px;">Tax</p></td>
+                        <td style="width:25%;vertical-align:top;text-align:right;"><p style="padding-bottom:5px;">${!superOrder.Total_Tax__c}</p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="width:100%;height:15px;"></td>
+                    </tr>
+                    <tr>
+                        <td style="width:20%;vertical-align:top;text-align:right;"></td>
+                        <td style="width:55%;vertical-align:top;text-align:right;"><p><strong>Total</strong></p></td>
+                        <td style="width:25%;vertical-align:top;text-align:right;"><p><strong>${!OrderDetails.subTotal + OrderDetails.shippingCost + superOrder.Total_Tax__c}</strong></p></td>
+                    </tr>
+                </table>
+                
+            </div>
+
+            
+            <div style="Margin:7%;">
+            
+                <p style="color:#8A8A8A;Margin:auto 0;">Shipped to:</p>
+                
+                <p>{!orderDetails.shipToContactName}<br />
+                {!orderDetails.shipToStreet}<br />
+                {!orderDetails.shipToCity}, {!orderDetails.shipToState} {!orderDetails.shipToPostalCode}</p>
+            
+            </div>
+            
+        </div>
+        
+        <!-- FOOTER -->
+
+        <div style="margin:30px auto;text-align:center;max-width:600px;font-size:12px;color:#777777;">
+             <table style="width:100%;padding:0px;border:none;vertical-align:top;text-align:center;">
+               <tr>
+                 <td>
+                   <a href="https://twitter.com/my_helix" target="_blank" style="text-decoration:none;color:#777777;font-size:12px;">Follow us&nbsp;&nbsp;<img src="https://c.na30.content.force.com/servlet/servlet.ImageServer?id=01536000001bMe2&oid=00D36000000Jv1T&lastMod=1479179396000" width="13" height="10"/></a><span style="border-left: 1px solid #777777;height:30px;margin:20px;"></span><a href="https://www.helix.com/support" target="_blank" style="text-decoration:none;color:#777777;font-size:12px;">Need help?</a>
+                 </td>
+               </tr>
+             </table>
+        <p style="font-size:12px;line-height:20px;">1 Circle Star Way, San Carlos, CA 94070<br/>&copy; 2016 Helix. All rights reserved.</p>
+       
+        <p>&nbsp;</p>
+      
+        </div>
+
+    </div>
+</body>
+</html>
+</apex:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Accessioning Hold - Sample not Registered</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Accessioning Hold - Sample not Registered</name>
+    <style>none</style>
+    <subject>Message from Helix</subject>
+    <type>text</type>
+</EmailTemplate>
