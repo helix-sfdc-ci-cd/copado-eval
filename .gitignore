@@ -1,6 +1,27 @@
 #package.xml file is recreated on the fly by Copado, no need to track unnecessary changes of this file
 package.xml
 
+#if you are not going to customize a managed package, you can keep your repository clean by ignoring 
+#all files for that package.
+#if you will be customizing managed packages, make sure that the same version of the package 
+#is installed on all your environments, so that deployments will only update existing 
+#managed components. Creation of managed components is not permitted by the API.
+#Excluded managed packages start here, note the trailing __ pattern ...
+*Apttus__*
+*Apttus_CMDSign__*
+*Apttus_DocuApi__*
+*Apttus_XApps__*
+*Apttus_XAppsDS__*
+*copado__*
+*dlrs__*
+*et4ae5__*
+*MCCA5PROD__*
+*NVMContactWorld__*
+*sf_chttr_apps__*
+*sf_com_apps__*
+
+
+
 #Flow definitions are ready only for the Api, they get created automatically, therefore no need to track them.
 flowDefinitions/*
 
@@ -17,3 +38,4 @@ objectTranslations/*
 #Until the above is achieved, you can ignore them as follows
 sites/*
 siteDotComSites/*
+*
