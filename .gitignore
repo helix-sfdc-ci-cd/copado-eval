@@ -1,0 +1,19 @@
+#package.xml file is recreated on the fly by Copado, no need to track unnecessary changes of this file
+package.xml
+
+#Flow definitions are ready only for the Api, they get created automatically, therefore no need to track them.
+flowDefinitions/*
+
+#Translations are complex since get updated indirectly across multiple files, they can make a deployment fail
+#if a field is translated in source and it doesn't exist on destination. 
+#If you are committing incrementally new fields and new Translations you can track them in Git, just be careful. 
+#If you choose  to ignore them in Git, you can always create a deployment with the Copado Deployer "Translation" Step. 
+translations/*
+objectTranslations/*
+
+
+#Sites which has Domain mapping has environment specific information. 
+#Make sure you setup Copado Environment Variables to make sites config files environment agnostic.
+#Until the above is achieved, you can ignore them as follows
+sites/*
+siteDotComSites/*
