@@ -1,0 +1,3166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddInfluence</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <businessProcesses>
+        <fullName>Helix Sales Process</fullName>
+        <description>Used for B2B Leads</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>1%2E Prospecting %28Non-confidential intro%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2%2E Prospecting %28Confidential discussions%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3%2E Prospecting %28MOU%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4%2E Onboarding %28Product definition%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5%2E Onboarding %28Product development%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6%2E Onboarding %28Product testing%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7%2E Ready for Launch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8%2E Launched</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X%2E Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X%2E Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X%2E Lost</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <compactLayoutAssignment>New_Awesome_Companct_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>New_Awesome_Companct_Layout</fullName>
+        <fields>Name</fields>
+        <fields>AccountId</fields>
+        <fields>CloseDate</fields>
+        <fields>Amount</fields>
+        <fields>OwnerId</fields>
+        <label>New Awesome Compact Layout</label>
+    </compactLayouts>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>Ability_to_pay__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please score (1-5)</inlineHelpText>
+        <label>Ability to pay</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Amount</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Brand_equity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please rate (1-5)</inlineHelpText>
+        <label>Brand equity</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Budget_Confirmed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Budget Confirmed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Business_Legal2__c</fullName>
+        <externalId>false</externalId>
+        <label>Business/ Legal</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CampaignId</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CloseDate</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Consumer_base__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please score (1-5)</inlineHelpText>
+        <label>Consumer base</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractId</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Coverage_Check_Date__c</fullName>
+        <description>Automatically filled in when &quot;Coverage Check: Obtained &amp; Added&quot; is checked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically filled in when &quot;Coverage Check: Obtained &amp; Added&quot; is checked</inlineHelpText>
+        <label>Coverage Check: Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Coverage_Check_Obtained_Added__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check only when Coverage Check is uploaded to the opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check only when Coverage Check is uploaded to the opportunity</inlineHelpText>
+        <label>Coverage Check: Obtained &amp; Added</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Definitive_Agreement_Date__c</fullName>
+        <description>Automatically filled in when &quot;Definitive Agreement: Obtained &amp; Added&quot; is checked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically filled in when &quot;Definitive Agreement: Obtained &amp; Added&quot; is checked</inlineHelpText>
+        <label>Definitive Agreement: Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Definitive_Agreement_Obtained_Added__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check only when Definitive Agreement is uploaded to the opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check only when Definitive Agreement is uploaded to the opportunity</inlineHelpText>
+        <label>Definitive Agreement: Obtained &amp; Added</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Description_Business_Legal__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Business/ Legal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Design__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Design</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Engineering__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Engineering</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Marketing__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Marketing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Operations__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Operations</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Regulatory__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Regulatory</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Description_Science__c</fullName>
+        <externalId>false</externalId>
+        <label>Description: Science</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Design2__c</fullName>
+        <externalId>false</externalId>
+        <label>Design</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Discovery_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Discovery Completed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Engineering2__c</fullName>
+        <externalId>false</externalId>
+        <label>Engineering</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Estimated_Number_of_Kits_Monthly__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Number of Kits (Monthly)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ExpectedRevenue</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Fills_a_need_gap__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please score (1-5)</inlineHelpText>
+        <label>Fills a need / gap</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>For_Discussion__c</fullName>
+        <externalId>false</externalId>
+        <label>For Discussion</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Innovation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Score (1-5)</inlineHelpText>
+        <label>Innovation</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_commitment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Score (1-5)</inlineHelpText>
+        <label>Internal commitment</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsPrivate</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Source_Details__c</fullName>
+        <description>Used in Validation Rule when value contains &quot;Please Specify&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used in Validation Rule when value contains &quot;Please Specify&quot;</inlineHelpText>
+        <label>Lead Source Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Loss_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Loss Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lost to Competitor</fullName>
+                    <default>false</default>
+                    <label>Lost to Competitor</label>
+                </value>
+                <value>
+                    <fullName>No Budget / Lost Funding</fullName>
+                    <default>false</default>
+                    <label>No Budget / Lost Funding</label>
+                </value>
+                <value>
+                    <fullName>No Decision / Non-Responsive</fullName>
+                    <default>false</default>
+                    <label>No Decision / Non-Responsive</label>
+                </value>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lost_Reason_Details__c</fullName>
+        <description>Used when &quot;Other&quot; is selected</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used when &quot;Other&quot; is selected</inlineHelpText>
+        <label>Lost Reason Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lost_Reasons__c</fullName>
+        <externalId>false</externalId>
+        <label>Lost Reasons</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>StageName</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pricing</fullName>
+                    <default>false</default>
+                    <label>Pricing</label>
+                </value>
+                <value>
+                    <fullName>Prospect capabilities</fullName>
+                    <default>false</default>
+                    <label>Prospect capabilities</label>
+                </value>
+                <value>
+                    <fullName>Helix capabilities (data, tech)</fullName>
+                    <default>false</default>
+                    <label>Helix capabilities (data, tech)</label>
+                </value>
+                <value>
+                    <fullName>Management buy-in</fullName>
+                    <default>false</default>
+                    <label>Management buy-in</label>
+                </value>
+                <value>
+                    <fullName>Legal issue (ie IP)</fullName>
+                    <default>false</default>
+                    <label>Legal issue (ie IP)</label>
+                </value>
+                <value>
+                    <fullName>Timing</fullName>
+                    <default>false</default>
+                    <label>Timing</label>
+                </value>
+                <value>
+                    <fullName>Other platform</fullName>
+                    <default>false</default>
+                    <label>Other platform</label>
+                </value>
+                <value>
+                    <fullName>Other, please explain</fullName>
+                    <default>false</default>
+                    <label>Other, please explain</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Pricing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Prospect capabilities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Helix capabilities (data, tech)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Management buy-in</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Legal issue (ie IP)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Timing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Other platform</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>X. Inactive</controllingFieldValue>
+                <controllingFieldValue>X. Lost</controllingFieldValue>
+                <controllingFieldValue>X. Hold</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Other, please explain</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MOU_Date__c</fullName>
+        <description>Automatically filled in when &quot;MOU: Obtained &amp; Added&quot; is checked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically filled in when &quot;MOU: Obtained &amp; Added&quot; is checked</inlineHelpText>
+        <label>MOU: Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MOU_Obtained_Added__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check only when MOU is uploaded to the opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check only when MOU is uploaded to the opportunity</inlineHelpText>
+        <label>MOU: Obtained &amp; Added</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Market_Category__c</fullName>
+        <description>Please define which market category the deal is</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please define which market category the deal is</inlineHelpText>
+        <label>Market Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Market_Category</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Market_Sub_category__c</fullName>
+        <description>Please define the Market Sub-category</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please define the Market Sub-category</inlineHelpText>
+        <label>Market Sub-category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Market_Category__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetName>Market_Sub_category</valueSetName>
+            <valueSettings>
+                <controllingFieldValue>Ancestry</controllingFieldValue>
+                <valueName>Genealogy Profile</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ancestry</controllingFieldValue>
+                <valueName>Genealogy Traits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ancestry</controllingFieldValue>
+                <valueName>Relative Finder</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ancestry</controllingFieldValue>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <controllingFieldValue>Family</controllingFieldValue>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <controllingFieldValue>Science and Research</controllingFieldValue>
+                <controllingFieldValue>Technology Partner</controllingFieldValue>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Other (please specify)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Games</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Inherited traits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Music</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Personality</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Relationships</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Social</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Sports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Entertainment</controllingFieldValue>
+                <valueName>Taste</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Family</controllingFieldValue>
+                <valueName>Carrier Screening</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Family</controllingFieldValue>
+                <valueName>Fertility</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Family</controllingFieldValue>
+                <valueName>Pediatric</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Family</controllingFieldValue>
+                <valueName>Women&apos;s Health (Broad)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Alzheimer&apos;s</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Cancer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Cardiovascular</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Concierge Medicine</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Corporate Wellness</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Dental and Oral Health</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Dermatology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Diabetes / Endocrinology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Gastroenterology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Hematology (Blood Diseases)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Hepatology (Liver, Pancreas, Gallbladder)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Immunology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Mental Health</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Musculoskeletal</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Nephrology (Kidneys)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Neurology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Ophthalmology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Pharmacogenomics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Pulmonology (Lung / Respiratory)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Research, Non-Profit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Health</controllingFieldValue>
+                <valueName>Urology</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Science and Research</controllingFieldValue>
+                <valueName>General Education</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Science and Research</controllingFieldValue>
+                <valueName>Research, Patient Network</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Technology Partner</controllingFieldValue>
+                <valueName>Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Fitness / Nutrition</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Fitness Only</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>General Wellness</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Learning / Cognition / Memory</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Nutrition Only</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Personal Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Sleep</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Wellness</controllingFieldValue>
+                <valueName>Smoking</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Market_Sub_category_details__c</fullName>
+        <externalId>false</externalId>
+        <label>Market Sub-category details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Marketing2__c</fullName>
+        <externalId>false</externalId>
+        <label>Marketing</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Month_1__c</fullName>
+        <description>1st Month Projection</description>
+        <externalId>false</externalId>
+        <inlineHelpText>1st Month Projection</inlineHelpText>
+        <label>Month 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Month_2__c</fullName>
+        <description>2nd Month Projection</description>
+        <externalId>false</externalId>
+        <inlineHelpText>2nd Month Projection</inlineHelpText>
+        <label>Month 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Month_3__c</fullName>
+        <description>3rd Month Projection</description>
+        <externalId>false</externalId>
+        <inlineHelpText>3rd Month Projection</inlineHelpText>
+        <label>Month 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Month_4__c</fullName>
+        <description>4th Month Projection</description>
+        <externalId>false</externalId>
+        <inlineHelpText>4th Month Projection</inlineHelpText>
+        <label>Month 4</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Month_5__c</fullName>
+        <description>5th Month Projection</description>
+        <externalId>false</externalId>
+        <inlineHelpText>5th Month Projection</inlineHelpText>
+        <label>Month 5</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Month_6__c</fullName>
+        <description>6th Month Projection</description>
+        <externalId>false</externalId>
+        <inlineHelpText>6th Month Projection</inlineHelpText>
+        <label>Month 6</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NDA_Date__c</fullName>
+        <description>Automatically filled in When &quot; NDA: Obtained &amp; Added&quot; is checked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically filled in When &quot; NDA: Obtained &amp; Added&quot; is checked</inlineHelpText>
+        <label>NDA: Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NDA_Obtained_Added__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check only when NDA is uploaded to the opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check only when NDA is uploaded to the opportunity</inlineHelpText>
+        <label>NDA: Obtained &amp; Added</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>NextStep</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Operations2__c</fullName>
+        <externalId>false</externalId>
+        <label>Operations</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Overall_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Overall Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pricebook2Id</fullName>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Prospect__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority Prospect</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Probability</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Probability_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Probability Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Probability_of_launch__c</fullName>
+        <externalId>false</externalId>
+        <label>Probability of launch</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>10%</fullName>
+                    <default>false</default>
+                    <label>10%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>30%</fullName>
+                    <default>false</default>
+                    <label>30%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>50%</fullName>
+                    <default>false</default>
+                    <label>50%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>70%</fullName>
+                    <default>false</default>
+                    <label>70%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>90%</fullName>
+                    <default>false</default>
+                    <label>90%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product2__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Description</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Product_market_fit__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Score (1-5)</inlineHelpText>
+        <label>Product / market fit</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_savvy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please score (1-5)</inlineHelpText>
+        <label>Product savvy</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ROI_Analysis_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ROI Analysis Completed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Regulatory2__c</fullName>
+        <externalId>false</externalId>
+        <label>Regulatory</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Resources__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Score (1-5)</inlineHelpText>
+        <label>Resources</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Science2__c</fullName>
+        <externalId>false</externalId>
+        <label>Science</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0%</fullName>
+                    <default>false</default>
+                    <label>0%</label>
+                </value>
+                <value>
+                    <fullName>20%</fullName>
+                    <default>false</default>
+                    <label>20%</label>
+                </value>
+                <value>
+                    <fullName>40%</fullName>
+                    <default>false</default>
+                    <label>40%</label>
+                </value>
+                <value>
+                    <fullName>60%</fullName>
+                    <default>false</default>
+                    <label>60%</label>
+                </value>
+                <value>
+                    <fullName>80%</fullName>
+                    <default>false</default>
+                    <label>80%</label>
+                </value>
+                <value>
+                    <fullName>100%</fullName>
+                    <default>false</default>
+                    <label>100%</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Scientific_Eval_Date__c</fullName>
+        <description>Automatically filled in when &quot;Scientific Eval: Obtained &amp; Added&quot; is checked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically filled in when &quot;Scientific Eval: Obtained &amp; Added&quot; is checked</inlineHelpText>
+        <label>Scientific Eval: Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Scientific_Eval_Obtained_Added__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check only when Scientific Eval is uploaded to the opportunity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check only when Scientific Eval is uploaded to the opportunity</inlineHelpText>
+        <label>Scientific Eval: Obtained &amp; Added</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Seasonal_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Seasonal Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StageName</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status_Business_Legal2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Business/ Legal</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Design2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Design</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Engineering2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Engineering</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Marketing2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Marketing</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Operations2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Operations</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Product2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Product</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Regulatory2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Regulatory</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Science2__c</fullName>
+        <externalId>false</externalId>
+        <label>Status: Science</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green (on track to meet target launch)</fullName>
+                    <default>false</default>
+                    <label>Green (on track to meet target launch)</label>
+                </value>
+                <value>
+                    <fullName>Yellow (behind or needs attention)</fullName>
+                    <default>false</default>
+                    <label>Yellow (behind or needs attention)</label>
+                </value>
+                <value>
+                    <fullName>Red (strong risk for missing timeline)</fullName>
+                    <default>false</default>
+                    <label>Red (strong risk for missing timeline)</label>
+                </value>
+                <value>
+                    <fullName>Gray (not started)</fullName>
+                    <default>false</default>
+                    <label>Gray (not started)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status_Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Summary</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SyncedQuoteId</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Target_Launch_Date__c</fullName>
+        <description>Date the client expects to launch</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the client expects to launch</inlineHelpText>
+        <label>Target Launch Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Timing__c</fullName>
+        <description>Used for Lead Scoring across Lead/ Opportunity Objects</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for Lead Scoring across Lead/ Opportunity Objects</inlineHelpText>
+        <label>Timing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Lead_Scoring</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TotalOpportunityQuantity</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Total_Weighted_Lead_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Brand_equity__c *0.15)+( Consumer_base__c *0.10) + ( Trust__c *0.05)+ ( Innovation__c *0.05) + ( Product_savvy__c * 0.05) + ( Fills_a_need_gap__c * 0.15) + ( Product_market_fit__c * 0.15) + ( Ability_to_pay__c * 0.10) + ( Internal_commitment__c * 0.10) + ( Resources__c * 0.10)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Weighted Lead Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trust__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please Score (1-5)</inlineHelpText>
+        <label>Trust</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Won_Reason_Details__c</fullName>
+        <description>Used when &quot;Other&quot; is selected</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used when &quot;Other&quot; is selected</inlineHelpText>
+        <label>Won Reason Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Won_Reasons__c</fullName>
+        <externalId>false</externalId>
+        <label>Won Reasons</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <controllingField>StageName</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pricing</fullName>
+                    <default>false</default>
+                    <label>Pricing</label>
+                </value>
+                <value>
+                    <fullName>Marketing/promotional spend</fullName>
+                    <default>false</default>
+                    <label>Marketing/promotional spend</label>
+                </value>
+                <value>
+                    <fullName>Marketplace size</fullName>
+                    <default>false</default>
+                    <label>Marketplace size</label>
+                </value>
+                <value>
+                    <fullName>Data quality/quantity</fullName>
+                    <default>false</default>
+                    <label>Data quality/quantity</label>
+                </value>
+                <value>
+                    <fullName>Easy to do business</fullName>
+                    <default>false</default>
+                    <label>Easy to do business</label>
+                </value>
+                <value>
+                    <fullName>Other, please explain</fullName>
+                    <default>false</default>
+                    <label>Other, please explain</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>3. Prospecting (MOU)</controllingFieldValue>
+                <controllingFieldValue>4. Onboarding (Product definition)</controllingFieldValue>
+                <controllingFieldValue>5. Onboarding (Product development)</controllingFieldValue>
+                <controllingFieldValue>6. Onboarding (Product testing)</controllingFieldValue>
+                <controllingFieldValue>7. Ready for Launch</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Pricing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3. Prospecting (MOU)</controllingFieldValue>
+                <controllingFieldValue>4. Onboarding (Product definition)</controllingFieldValue>
+                <controllingFieldValue>5. Onboarding (Product development)</controllingFieldValue>
+                <controllingFieldValue>6. Onboarding (Product testing)</controllingFieldValue>
+                <controllingFieldValue>7. Ready for Launch</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Marketing/promotional spend</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3. Prospecting (MOU)</controllingFieldValue>
+                <controllingFieldValue>4. Onboarding (Product definition)</controllingFieldValue>
+                <controllingFieldValue>5. Onboarding (Product development)</controllingFieldValue>
+                <controllingFieldValue>6. Onboarding (Product testing)</controllingFieldValue>
+                <controllingFieldValue>7. Ready for Launch</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Marketplace size</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3. Prospecting (MOU)</controllingFieldValue>
+                <controllingFieldValue>4. Onboarding (Product definition)</controllingFieldValue>
+                <controllingFieldValue>5. Onboarding (Product development)</controllingFieldValue>
+                <controllingFieldValue>6. Onboarding (Product testing)</controllingFieldValue>
+                <controllingFieldValue>7. Ready for Launch</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Data quality/quantity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3. Prospecting (MOU)</controllingFieldValue>
+                <controllingFieldValue>4. Onboarding (Product definition)</controllingFieldValue>
+                <controllingFieldValue>5. Onboarding (Product development)</controllingFieldValue>
+                <controllingFieldValue>6. Onboarding (Product testing)</controllingFieldValue>
+                <controllingFieldValue>7. Ready for Launch</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Easy to do business</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>3. Prospecting (MOU)</controllingFieldValue>
+                <controllingFieldValue>4. Onboarding (Product definition)</controllingFieldValue>
+                <controllingFieldValue>5. Onboarding (Product development)</controllingFieldValue>
+                <controllingFieldValue>6. Onboarding (Product testing)</controllingFieldValue>
+                <controllingFieldValue>7. Ready for Launch</controllingFieldValue>
+                <controllingFieldValue>8. Launched</controllingFieldValue>
+                <valueName>Other, please explain</valueName>
+            </valueSettings>
+        </valueSet>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <listViews>
+        <fullName>AllOpportunities</fullName>
+        <columns>OPPORTUNITY.NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>OPPORTUNITY.AMOUNT</columns>
+        <columns>OPPORTUNITY.CLOSE_DATE</columns>
+        <columns>OPPORTUNITY.STAGE_NAME</columns>
+        <columns>OPPORTUNITY.PROBABILITY</columns>
+        <columns>OPPORTUNITY.TYPE</columns>
+        <columns>OPPORTUNITY.LEAD_SOURCE</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Opportunities</label>
+    </listViews>
+    <listViews>
+        <fullName>ClosingNextMonth</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OPPORTUNITY.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <operation>equals</operation>
+            <value>NEXT_MONTH</value>
+        </filters>
+        <label>Closing Next Month</label>
+    </listViews>
+    <listViews>
+        <fullName>ClosingThisMonth</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OPPORTUNITY.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Closing This Month</label>
+    </listViews>
+    <listViews>
+        <fullName>Default_Opportunity_Pipeline</fullName>
+        <booleanFilter>(1 OR 2)</booleanFilter>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>OPPORTUNITY.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>Opportunity Pipeline</label>
+    </listViews>
+    <listViews>
+        <fullName>MyOpportunities</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Opportunities</label>
+    </listViews>
+    <listViews>
+        <fullName>NewThisWeek</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_WEEK</value>
+        </filters>
+        <label>New This Week</label>
+    </listViews>
+    <listViews>
+        <fullName>Won</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OPPORTUNITY.WON</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>OPPORTUNITY.CLOSED</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Won</label>
+    </listViews>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Helix_B2B_Opportunity</fullName>
+        <active>true</active>
+        <businessProcess>Helix Sales Process</businessProcess>
+        <label>Helix B2B Opportunity</label>
+        <picklistValues>
+            <picklist>Business_Legal2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Design2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Engineering2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>For_Discussion__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ForecastCategoryName</picklist>
+            <values>
+                <fullName>Best Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Omitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipeline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Cold call %2F email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conference %28please specify%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>External referral %28please specify%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Helix outreach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal referral %28please specify%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28please specify%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Loss_Reason__c</picklist>
+            <values>
+                <fullName>Lost to Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Budget %2F Lost Funding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Decision %2F Non-Responsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lost_Reasons__c</picklist>
+            <values>
+                <fullName>Helix capabilities %28data%2C tech%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal issue %28ie IP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management buy-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other platform</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other%2C please explain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect capabilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Timing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market_Category__c</picklist>
+            <values>
+                <fullName>Ancestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Science and Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wellness</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Market_Sub_category__c</picklist>
+            <values>
+                <fullName>Alzheimer%27s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carrier Screening</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Concierge Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Wellness</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental and Oral Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes %2F Endocrinology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fertility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fitness %2F Nutrition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fitness Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Games</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Genealogy Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Genealogy Traits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Wellness</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hematology %28Blood Diseases%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hepatology %28Liver%2C Pancreas%2C Gallbladder%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immunology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inherited traits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Learning %2F Cognition %2F Memory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musculoskeletal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Music</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology %28Kidneys%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nutrition Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28please specify%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatric</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacogenomics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Providers%3A Concierge Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Providers%3A Genetic Counselor Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Providers%3A Physician Referral Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pulmonology %28Lung %2F Respiratory%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relationships</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative Finder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Research%2C Non-Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Research%2C Patient Network</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sleep</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taste</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Women%27s Health %28Broad%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Marketing2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Operations2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Overall_Status__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority_Prospect__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Probability_of_launch__c</picklist>
+            <values>
+                <fullName>10%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>70%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regulatory2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Science2__c</picklist>
+            <values>
+                <fullName>0%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>100%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>40%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80%25</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Seasonal_Product__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Business_Legal2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Design2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Engineering2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Marketing2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Operations2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Product2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Regulatory2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Science2__c</picklist>
+            <values>
+                <fullName>Gray %28not started%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Green %28on track to meet target launch%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red %28strong risk for missing timeline%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow %28behind or needs attention%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Timing__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Existing Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Won_Reasons__c</picklist>
+            <values>
+                <fullName>Data quality%2Fquantity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Easy to do business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing%2Fpromotional spend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketplace size</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other%2C please explain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OPPORTUNITY.CLOSE_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>OPPORTUNITY.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupFilterFields>OPPORTUNITY.NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OPPORTUNITY.STAGE_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OPPORTUNITY.CLOSE_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Lead_Source_Details</fullName>
+        <active>true</active>
+        <description>Used to force validation when &quot;Please specify&quot; is selected</description>
+        <errorConditionFormula>AND( 
+ISBLANK( Lead_Source_Details__c), 
+OR ( 
+ISPICKVAL(LeadSource , &quot;Internal referral (please specify)&quot;),
+ISPICKVAL(LeadSource , &quot;Conference (please specify)&quot;),
+ISPICKVAL(LeadSource , &quot;External referral (please specify)&quot;), 
+ISPICKVAL(LeadSource , &quot;Other (please specify)&quot;) 
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Lead_Source_Details__c</errorDisplayField>
+        <errorMessage>Please fill in details</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lost_Reason_Details</fullName>
+        <active>true</active>
+        <description>This rules forces if lost reason details is blank and &quot;Other, please explain&quot; is selected</description>
+        <errorConditionFormula>AND (
+(INCLUDES( Lost_Reasons__c, &quot;Other, please explain&quot;)), ISBLANK(  Lost_Reason_Details__c  ))</errorConditionFormula>
+        <errorDisplayField>Lost_Reason_Details__c</errorDisplayField>
+        <errorMessage>Please fill in reason why the deal was lost</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Market_sub_category_details</fullName>
+        <active>true</active>
+        <description>Used to force validation when &quot;Please specify&quot; is selected</description>
+        <errorConditionFormula>AND( 
+ISBLANK( Market_Sub_category_details__c ),
+ISPICKVAL( Market_Sub_category__c, &quot;Other (please specify)&quot;)
+)</errorConditionFormula>
+        <errorDisplayField>Market_Sub_category_details__c</errorDisplayField>
+        <errorMessage>Please fill in details</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Won_Reason_Details</fullName>
+        <active>true</active>
+        <description>Used to force description when &quot;Other, please explain&quot; is selected</description>
+        <errorConditionFormula>AND (
+(INCLUDES ( Won_Reasons__c, &quot;Other, please explain&quot;)), ISBLANK( Won_Reason_Details__c ))</errorConditionFormula>
+        <errorDisplayField>Won_Reason_Details__c</errorDisplayField>
+        <errorMessage>Please fill in reason why the deal was won</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Apttus_XApps__EditInExcel</fullName>
+        <availability>online</availability>
+        <description>Edit Opportunities in Excel</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Edit In Excel</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/Apttus_XApps__EditInExcelLaunch?parentRecordId={!Account.Id}&amp;&quot;&amp;appName=Account and Opportunities&quot;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus__CreateAgreementFromOpportunity</fullName>
+        <availability>online</availability>
+        <description>Create agreement from the opportunity</description>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Agreement</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus__OpportunityAgreement</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus__CreateOfflineAgreementFromOpportunity</fullName>
+        <availability>online</availability>
+        <description>Create offline agreement from opportunity</description>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Offline Agreement</masterLabel>
+        <openType>sidebar</openType>
+        <page>Apttus__OfflineOpportunityAgreement</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus__NewAgreementFromOpportunity</fullName>
+        <availability>online</availability>
+        <description>Create agreement from the opportunity</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Agreement (Deprecated)</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/Apttus__OpportunityAgreement?id={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Apttus__NewOfflineAgreementFromOpportunity</fullName>
+        <availability>online</availability>
+        <description>Create offline agreement from opportunity</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Offline Agreement (Deprecated)</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/Apttus__OfflineOpportunityAgreement?id={!Opportunity.Id}</url>
+    </webLinks>
+</CustomObject>

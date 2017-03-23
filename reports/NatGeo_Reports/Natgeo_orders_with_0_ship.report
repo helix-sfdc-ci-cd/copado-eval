@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ORDER_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Order.Netsuite_Sales_Order_ID__c</field>
+    </columns>
+    <columns>
+        <field>Order.Netsuite_Sales_Order_Number__c</field>
+    </columns>
+    <columns>
+        <field>ORDER_EFFECTIVE_DATE</field>
+    </columns>
+    <columns>
+        <field>ORDER_TOTAL_AMOUNT</field>
+    </columns>
+    <columns>
+        <field>ORDER_CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>ORDER_ITEM_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Order.Partner_Channel__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>National Geographic</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ORDER_ITEM_NAME</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Shipping &amp; Handling</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ORDER_ITEM_UNITPRICE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>USD 0</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Natgeo orders with 0 ship</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OrderItemList@Order.SuperOrder__c</reportType>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>ORDER_EFFECTIVE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

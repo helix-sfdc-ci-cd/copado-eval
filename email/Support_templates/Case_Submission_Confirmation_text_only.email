@@ -1,0 +1,14 @@
+Hello,
+
+We’re reaching out to let you know we've received your message and we’re on top of it!  We’ll respond with an e-mail as soon as we can (typically within two business days).  Your ticket number is {!Case.CaseNumber}.
+
+If you have any questions, we’re here to help! Visit helix.com/support.
+
+The Helix Team
+
+
+
+
+
+
+{!Case.Thread_Id}

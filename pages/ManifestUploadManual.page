@@ -1,0 +1,10 @@
+<apex:page controller="ManifestUploadManualCtrl">
+    <apex:form >
+        <apex:pageBlock title="Manifest Upload">
+            
+                <apex:commandButton value="Upload Manifest" action="{!uploadManifest}"/>
+                
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

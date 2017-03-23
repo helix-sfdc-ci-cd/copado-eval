@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <acrossGroupingContext>BucketField_99868213</acrossGroupingContext>
+        <calculatedFormula>RowCount / PARENTGROUPVAL(RowCount, ROW_GRAND_SUMMARY, COLUMN_GRAND_SUMMARY)</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>Percent of samples that failed according to associated failure reason</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Overall Failure Ratio</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <acrossGroupingContext>BucketField_99868213</acrossGroupingContext>
+        <calculatedFormula>RowCount / PARENTGROUPVAL(RowCount, OrderItem.Last_Accessioning_Scan__c, COLUMN_GRAND_SUMMARY)</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>Monthly Failure Ratio</description>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>OrderItem.Last_Accessioning_Scan__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Monthly Failure Ratio</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <acrossGroupingContext>GRAND_SUMMARY</acrossGroupingContext>
+        <calculatedFormula>RowCount / 
+PARENTGROUPVAL(RowCount, ROW_GRAND_SUMMARY, COLUMN_GRAND_SUMMARY)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA3</developerName>
+        <downGroupingContext>OrderItem.Last_Accessioning_Scan__c</downGroupingContext>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Overall Monthly Failure Ratio</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_32804135</developerName>
+        <masterLabel>Accessioning Status</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>OrderItem.Accessioning_Status__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>FAIL</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>CANCELLED</sourceValue>
+            </sourceValues>
+            <value>Failed Samples</value>
+        </values>
+    </buckets>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_99868213</developerName>
+        <masterLabel>Failure Reason</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <otherBucketLabel>Other</otherBucketLabel>
+        <sourceColumnName>OrderItem.Failure_Reason__c</sourceColumnName>
+        <useOther>true</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Low Volume</sourceValue>
+            </sourceValues>
+            <value>Low Volume</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>High Volume</sourceValue>
+            </sourceValues>
+            <value>High Volume</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>No Preservative</sourceValue>
+            </sourceValues>
+            <value>No Preservative</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Color Off / Opacity</sourceValue>
+            </sourceValues>
+            <value>Color Off / Opacity</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Unknown Particulates</sourceValue>
+            </sourceValues>
+            <value>Unknown Particulates</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Spill / Leak / Damaged kit</sourceValue>
+            </sourceValues>
+            <value>Spill / Leak / Damaged kit</value>
+        </values>
+    </buckets>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>RowCount</column>
+        </chartSummaries>
+        <chartType>VerticalColumnGrouped</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>OrderItem.Last_Accessioning_Scan__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <secondaryGroupingColumn>BucketField_99868213</secondaryGroupingColumn>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Large</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <title>Failed Samples</title>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>ORDER_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Order.Helix_Order_Number__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Kit_ID_formatted__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Hold_Reason__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Failure_Reviewed_By__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Box__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Well_Location__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>OrderItem.Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>KIT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OrderItem.Accessioning_Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>,PASS,HOLD,RETURN TO ACCESSIONING</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OrderItem.Failure_Reason__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_32804135</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_99868213</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Month</dateGranularity>
+        <field>OrderItem.Last_Accessioning_Scan__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Failed Samples By Status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OrderItemList</reportType>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>OrderItem.Last_Accessioning_Scan__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-11-21</startDate>
+    </timeFrameFilter>
+</Report>

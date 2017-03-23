@@ -1,0 +1,5 @@
+<messaging:emailTemplate subject="Order Confirmation" recipientType="Contact" relatedToType="SuperOrder__c">
+<messaging:htmlEmailBody >
+    <c:OrderSummary superOrderId="{!relatedTo.id}"></c:OrderSummary>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

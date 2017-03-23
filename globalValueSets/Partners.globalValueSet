@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Premium G&amp;G</fullName>
+        <default>false</default>
+        <label>Premium G&amp;G</label>
+    </customValue>
+    <customValue>
+        <fullName>Premium Consumer</fullName>
+        <default>false</default>
+        <label>Premium Consumer</label>
+    </customValue>
+    <customValue>
+        <fullName>Developer</fullName>
+        <default>false</default>
+        <label>Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Accelerator</fullName>
+        <default>false</default>
+        <label>Accelerator</label>
+    </customValue>
+    <description>Referenced in Lead/ Account objects</description>
+    <masterLabel>Partners</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,11 @@
+Hello {!Contact.FirstName}, 
+
+Thank you for reaching out to Helix!  I can confirm your sample is successfully registered in our system.  If you have not already done so, please feel free submit your saliva sample as time permits.  Should you wish to refresh yourself on the submission process, instructions can be found here 
+
+https://store.helix.com/sample/instructions 
+
+If desired, you can also login to your Helix account by clicking on account in the upper right hand corner at www.helix.com.
+
+Thank you!
+{!Case.OwnerFirstName}
+The Helix Customer Care Team

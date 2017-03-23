@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Add</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Analysis_Workflow__c</fullName>
+        <description>Applies to kit products only. Required field for Sample Manifest export integration.
+(The format used is &lt;App&gt;&lt;App Version&gt;&lt;Workflow Tag&gt;&lt;Workflow version&gt;)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applies to kit products only. Required field for Sample Manifest export integration.
+(The format used is &lt;App&gt;&lt;App Version&gt;&lt;Workflow Tag&gt;&lt;Workflow version&gt;)</inlineHelpText>
+        <label>Analysis Workflow</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>reads_to_variants_v2.0.0</fullName>
+                    <default>false</default>
+                    <label>reads_to_variants_v2.0.0</label>
+                </value>
+                <value>
+                    <fullName>helix_reads_to_variants_v2.1.0</fullName>
+                    <default>false</default>
+                    <label>helix_reads_to_variants_v2.1.0</label>
+                </value>
+                <value>
+                    <fullName>helix_r2v_v2.1.0</fullName>
+                    <default>false</default>
+                    <label>helix_r2v_v2.1.0</label>
+                </value>
+                <value>
+                    <fullName>helix_r2v_v2.2.0-WF1.0.0</fullName>
+                    <default>false</default>
+                    <label>helix_r2v_v2.2.0-WF1.0.0</label>
+                </value>
+                <value>
+                    <fullName>helix_r2v_v2.2.1-WF1.0.0</fullName>
+                    <default>false</default>
+                    <label>helix_r2v_v2.2.1-WF1.0.0</label>
+                </value>
+                <value>
+                    <fullName>helix_r2v_v2.3.0-WF1.0.0</fullName>
+                    <default>false</default>
+                    <label>helix_r2v_v2.3.0-WF1.0.0</label>
+                </value>
+                <value>
+                    <fullName>helix_r2v_v2.3.1-WF1.0.0</fullName>
+                    <default>false</default>
+                    <label>helix_r2v_v2.3.1-WF1.0.0</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>AppID__c</fullName>
+        <description>Unique Helix Application ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Helix Application ID</inlineHelpText>
+        <label>AppID</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>App_Content_Value__c</fullName>
+        <description>Minimum Fee specific to this APP product. Used for calculation of Revenue for Partner and Helix. If Sequencing Fee &lt; Minimum Fee, Minimum Fee will be used as &quot;New Cust Revenue&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Minimum Fee specific to this APP product. Used for calculation of Revenue for Partner and Helix. If Sequencing Fee &lt; Minimum Fee, Minimum Fee will be used as &quot;New Cust Revenue&quot;</inlineHelpText>
+        <label>Minimum Fee</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Delivery_Mode__c</fullName>
+        <description>Applies to kit products only. Required field for Sample Manifest export integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applies to kit products only. Required field for Sample Manifest export integration.</inlineHelpText>
+        <label>Delivery Mode</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Deliver</fullName>
+                    <default>false</default>
+                    <label>Deliver</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DisplayUrl</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ExternalDataSourceId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ExternalId</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Family</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsCancellationAllowed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If checked, this product can be cancelled in the Services Toolbox or from a website. If unchecked, this product is not one that should have it&apos;s Status updated on an Order.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, this product can be cancelled in the Services Toolbox or from a website. If unchecked, this product is not one that should have it&apos;s Status updated on an Order.</inlineHelpText>
+        <label>Allow Cancellation?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Kit_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for calculation of Helix Sequence Revenue Unit Price on 3rd Party Orders with Kit...Helix Sequence Revenue Unit Price = &quot;New Cust Revenue&quot; from App Product record -  &quot;Kit Revenue&quot; from App Product Record</inlineHelpText>
+        <label>Kit Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Minimum_Fee__c</fullName>
+        <description>New Cust Revenue is the greater of Sequencing Fee + Kit Revenue or Minimum Fee. New Cust Revenue is used to establish Net of Processing revenue for revenue share calculations.</description>
+        <externalId>false</externalId>
+        <formula>If( Processing_Fee__c + Kit_Revenue__c &gt; App_Content_Value__c ,Processing_Fee__c + Kit_Revenue__c ,App_Content_Value__c )</formula>
+        <inlineHelpText>New Cust Revenue is the greater of Sequencing Fee + Kit Revenue or Minimum Fee. New Cust Revenue is used to establish Net of Processing revenue for revenue share calculations.</inlineHelpText>
+        <label>New Cust Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Partner_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Account for the partner supplying this application product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Account for the partner supplying this application product.</inlineHelpText>
+        <label>App Partner Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Products</relationshipLabel>
+        <relationshipName>Products</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Agreement_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Agreement End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Agreement_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Agreement Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Commission_Share__c</fullName>
+        <description>Fees paid to a Sourcing Partner for Partner-Sourced Customer subsequent purchases. % based on List Price and deducted from the Helix Sequencing Revenue.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fees paid to a Sourcing Partner for Partner-Sourced Customer subsequent purchases. % based on List Price and deducted from the Helix Sequencing Revenue.</inlineHelpText>
+        <label>Partner Referral Fee %</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>true</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Revenue_Share_PCT__c</fullName>
+        <description>Contracted Revenue Share % for Partner</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contracted Revenue Share % for Partner</inlineHelpText>
+        <label>Partner Revenue Share %</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>true</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Prep_Request__c</fullName>
+        <description>Applies to kit products only. Required field for Sample Manifest export integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applies to kit products only. Required field for Sample Manifest export integration.</inlineHelpText>
+        <label>Prep Request</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Helix Saliva Extraction</fullName>
+                    <default>false</default>
+                    <label>Helix Saliva Extraction</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Processing_Fee__c</fullName>
+        <description>Sequencing Fee specific to this APP product. Used for calculation of Revenue for Partner and Helix. If Sequencing Fee &gt; Minimum Fee, it will be used as &quot;New Cust Revenue&quot; in calculation engine.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sequencing Fee specific to this APP product. Used for calculation of Revenue for Partner and Helix. If Sequencing Fee &gt; Minimum Fee, it will be used as &quot;New Cust Revenue&quot; in calculation engine.</inlineHelpText>
+        <label>Sequencing Fee</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Product_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QuantityUnitOfMeasure</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Required_Yield__c</fullName>
+        <description>Required Yield in GB. Applies to kit products only. Required field for Sample Manifest export integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Required Yield in GB. Applies to kit products only. Required field for Sample Manifest export integration.</inlineHelpText>
+        <label>Required Yield</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>4.5</fullName>
+                    <default>false</default>
+                    <label>4.5</label>
+                </value>
+                <value>
+                    <fullName>6.1</fullName>
+                    <default>false</default>
+                    <label>6.1</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sample_Source__c</fullName>
+        <description>Applies to kit products only. Required field for Sample Manifest export integration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Applies to kit products only. Required field for Sample Manifest export integration.</inlineHelpText>
+        <label>Sample Source</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Customer Saliva</fullName>
+                    <default>false</default>
+                    <label>Customer Saliva</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>Picklist that sets the type of Product, useful in reporting and other logic throughout the Order lifecycle.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>KIT</fullName>
+                    <default>false</default>
+                    <label>KIT</label>
+                </value>
+                <value>
+                    <fullName>APP</fullName>
+                    <default>true</default>
+                    <label>APP</label>
+                </value>
+                <value>
+                    <fullName>S&amp;H</fullName>
+                    <default>false</default>
+                    <label>S&amp;H</label>
+                </value>
+                <value>
+                    <fullName>OTHER</fullName>
+                    <default>false</default>
+                    <label>OTHER</label>
+                </value>
+                <value>
+                    <fullName>SALES TAX</fullName>
+                    <default>false</default>
+                    <label>SALES TAX</label>
+                </value>
+                <value>
+                    <fullName>Helix Referral Fee</fullName>
+                    <default>false</default>
+                    <label>Helix Referral Fee</label>
+                </value>
+                <value>
+                    <fullName>Helix Sequence Revenue</fullName>
+                    <default>false</default>
+                    <label>Helix Sequence Revenue</label>
+                </value>
+                <value>
+                    <fullName>Partner Revenue Share</fullName>
+                    <default>false</default>
+                    <label>Partner Revenue Share</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>X18_Char_Record_ID__c</fullName>
+        <description>converts 15-char record Id to 18-char format which is required for Boomi and other items.</description>
+        <externalId>false</externalId>
+        <formula>Id
+&amp; MID(&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ012345&quot;,(
+    IF(FIND(MID(Id,1,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,1,0)
+    +IF(FIND(MID(Id,2,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,2,0)
+    +IF(FIND(MID(Id,3,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,4,0)
+    +IF(FIND(MID(Id,4,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,8,0)
+    +IF(FIND(MID(Id,5,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,16,0)
+    )+1,1)
+&amp; MID(&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ012345&quot;,(
+    IF(FIND(MID(Id,6,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,1,0)
+    +IF(FIND(MID(Id,7,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,2,0)
+    +IF(FIND(MID(Id,8,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,4,0)
+    +IF(FIND(MID(Id,9,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,8,0)
+    +IF(FIND(MID(Id,10,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,16,0)
+    )+1,1)
+&amp; MID(&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ012345&quot;,(
+    IF(FIND(MID(Id,11,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,1,0)
+    +IF(FIND(MID(Id,12,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,2,0)
+    +IF(FIND(MID(Id,13,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,4,0)
+    +IF(FIND(MID(Id,14,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,8,0)
+    +IF(FIND(MID(Id,15,1), &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)&gt;0,16,0)
+    )+1,1)</formula>
+        <inlineHelpText>converts 15-char record Id to 18-char format which is required for Boomi and other items.</inlineHelpText>
+        <label>18-Char Record ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>productuniquekey__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Standard ProductCode field doesn&apos;t provide for unique attribute. This field will be populated from Product Code via WFR during product record creation and will block creation of records that are not unique.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Standard ProductCode field doesn&apos;t provide for unique attribute. This field will be populated from Product Code via WFR during product record creation and will block creation of records that are not unique.</inlineHelpText>
+        <label>productuniquekey</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <listViews>
+        <fullName>AllProducts</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Products</label>
+    </listViews>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>APP_RT</fullName>
+        <active>true</active>
+        <description>Record Type for App products</description>
+        <label>APP RT</label>
+        <picklistValues>
+            <picklist>Analysis_Workflow__c</picklist>
+            <values>
+                <fullName>reads_to_variants_v2%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Delivery_Mode__c</picklist>
+            <values>
+                <fullName>Deliver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Family</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prep_Request__c</picklist>
+            <values>
+                <fullName>Helix Saliva Extraction</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Required_Yield__c</picklist>
+            <values>
+                <fullName>4%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sample_Source__c</picklist>
+            <values>
+                <fullName>Customer Saliva</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>KIT_RT</fullName>
+        <active>true</active>
+        <description>Record Type for Kit products</description>
+        <label>KIT RT</label>
+        <picklistValues>
+            <picklist>Analysis_Workflow__c</picklist>
+            <values>
+                <fullName>helix_r2v_v2%2E1%2E0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>helix_r2v_v2%2E2%2E0-WF1%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>helix_r2v_v2%2E2%2E1-WF1%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>helix_r2v_v2%2E3%2E0-WF1%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>helix_r2v_v2%2E3%2E1-WF1%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>helix_reads_to_variants_v2%2E1%2E0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>reads_to_variants_v2%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Delivery_Mode__c</picklist>
+            <values>
+                <fullName>Deliver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Family</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prep_Request__c</picklist>
+            <values>
+                <fullName>Helix Saliva Extraction</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Required_Yield__c</picklist>
+            <values>
+                <fullName>4%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%2E1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sample_Source__c</picklist>
+            <values>
+                <fullName>Customer Saliva</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other_RT</fullName>
+        <active>true</active>
+        <description>Record Type for non kit or app products</description>
+        <label>Other RT</label>
+        <picklistValues>
+            <picklist>Analysis_Workflow__c</picklist>
+            <values>
+                <fullName>reads_to_variants_v2%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Delivery_Mode__c</picklist>
+            <values>
+                <fullName>Deliver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Family</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prep_Request__c</picklist>
+            <values>
+                <fullName>Helix Saliva Extraction</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Required_Yield__c</picklist>
+            <values>
+                <fullName>4%2E5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sample_Source__c</picklist>
+            <values>
+                <fullName>Customer Saliva</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Helix Referral Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Helix Sequence Revenue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Revenue Share</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S%26H</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SALES TAX</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>S_H_RT</fullName>
+        <active>true</active>
+        <description>Shipping &amp; Handling Record Type</description>
+        <label>S&amp;H RT</label>
+        <picklistValues>
+            <picklist>Analysis_Workflow__c</picklist>
+            <values>
+                <fullName>reads_to_variants_v2%2E0%2E0</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Delivery_Mode__c</picklist>
+            <values>
+                <fullName>Deliver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Family</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prep_Request__c</picklist>
+            <values>
+                <fullName>Helix Saliva Extraction</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Required_Yield__c</picklist>
+            <values>
+                <fullName>4%2E5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6%2E1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sample_Source__c</picklist>
+            <values>
+                <fullName>Customer Saliva</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>APP</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>KIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S%26H</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>PRODUCT2.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PRODUCT2.DESCRIPTION</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PRODUCT2.FAMILY</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.DESCRIPTION</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PRODUCT2.FAMILY</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.CUSTOMER_PRODUCT_ID</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.DESCRIPTION</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
+    </searchLayouts>
+</CustomObject>

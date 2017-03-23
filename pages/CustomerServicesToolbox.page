@@ -1,0 +1,247 @@
+<apex:page tabStyle="SuperOrder__c" controller="CustomerServicesToolboxCtrl" title="Services Toolbox">
+
+    <style>
+        .buttonLink {
+          font: bold 14px Arial;
+          text-decoration: none;
+          background-color: #f08080;
+          color: #333333;
+          padding: 2px 6px 2px 6px;
+          border-top: 1px solid #CCCCCC;
+          border-right: 1px solid #333333;
+          border-bottom: 1px solid #333333;
+          border-left: 1px solid #CCCCCC;
+        }
+    </style>
+
+    <apex:form >
+        <apex:pageBlock title="Customer Services Toolbox">
+            <apex:pageMessages ></apex:pageMessages> <br/>
+            <div style="font-size:15px;font-weight:bold;">
+            Search:  &nbsp;&nbsp;<apex:inputText value="{!searchKeyword}" style="width:700px;"/>&nbsp;&nbsp;<br/>
+            <apex:commandButton value="Search" action="{!searchOrder}" style="display:none;"/></div>
+            <div style="margin-left:70px;margin-top:10px;"> <b>Note:</b> Search for Super Orders, Orders, or Kits by using the full ID. Partial search terms are not currently supported.</div>
+
+            <br/><br/>
+            <apex:pageBlockSection title="SUPER ORDER DETAILS:" columns="1" rendered="{!AND(showResults, showSuperOrder)}">
+                <apex:outputPanel >
+
+                    <table width="1000">
+                        <th> Super Order ID: </th>
+                        <th> Date Created: </th>
+                        <th> Total Amount Paid: </th>
+                        <th> Total Orders: </th>
+                        <tr>
+                            <td width="200">
+                                <a href="/{!orderDetails.soId}" target="_blank"
+                                    id="lookup{!orderDetails.soId}opp4"
+                                    onblur="LookupHoverDetail.getHover('lookup{!orderDetails.soId}opp4').hide();"
+                                    onfocus="LookupHoverDetail.getHover('lookup{!orderDetails.soId}opp4', '/{!orderDetails.soId}/m?retURL=/{!orderDetails.soId}&isAjaxRequest=1').show();"
+                                    onmouseout="LookupHoverDetail.getHover('lookup{!orderDetails.soId}opp4').hide();"
+                                    onmouseover="LookupHoverDetail.getHover('lookup{!orderDetails.soId}opp4', '/{!orderDetails.soId}/m?retURL=/{!orderDetails.soId}&isAjaxRequest=1').show();">
+                                    {!orderDetails.soName}
+                                </a>
+                            </td>
+                            <td width="200"> {!orderDetails.soCreatedDate} </td>
+                            <td width="200"> USD ${!orderDetails.soTotalAmountPaid} </td>
+                            <td width="200"> {!orderDetails.soTotalOrders} </td>
+                            <td width="100">
+                                <apex:outputLink value="/apex/OrderCancelOrRefund?soId={!orderDetails.soId}&cancelOrRefund=cancel" styleClass="buttonLink">
+                                    Cancel All
+                                </apex:outputLink>
+
+                            </td>
+                            <td width="100">
+                                <apex:outputLink value="/apex/OrderCancelOrRefund?soId={!orderDetails.soId}&cancelOrRefund=refund" styleClass="buttonLink">
+                                    Refund
+                                </apex:outputLink>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <apex:repeat value="{!orderDetails.orderList}" var="ord">
+                        <apex:pageBlockSection title="ORDER DETAILS:" columns="1">
+                            <apex:outputPanel >
+                                <table width="800">
+                                    <th> Order ID: </th>
+                                    <th> Partner: </th>
+                                    <th> App Partner: </th>
+                                    <tr>
+                                        <td width="200">
+                                            <a href="/{!ord.id}" target="_blank"
+                                                id="lookup{!ord.id}opp4"
+                                                onblur="LookupHoverDetail.getHover('lookup{!ord.id}opp4').hide();"
+                                                onfocus="LookupHoverDetail.getHover('lookup{!ord.id}opp4', '/{!ord.id}/m?retURL=/{!ord.id}&isAjaxRequest=1').show();"
+                                                onmouseout="LookupHoverDetail.getHover('lookup{!ord.id}opp4').hide();"
+                                                onmouseover="LookupHoverDetail.getHover('lookup{!ord.id}opp4', '/{!ord.id}/m?retURL=/{!ord.id}&isAjaxRequest=1').show();">
+                                                {!ord.Helix_Order_Number__c}
+                                            </a>
+                                        </td>
+                                        <td width="200">
+                                            <a href="/{!ord.Partner_Channel__c}" target="_blank"
+                                                id="lookup{!ord.Partner_Channel__c}opp4"
+                                                onblur="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4').hide();"
+                                                onfocus="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4', '/{!ord.Partner_Channel__c}/m?retURL=/{!ord.Partner_Channel__c}&isAjaxRequest=1').show();"
+                                                onmouseout="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4').hide();"
+                                                onmouseover="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4', '/{!ord.Partner_Channel__c}/m?retURL=/{!ord.Partner_Channel__c}&isAjaxRequest=1').show();">
+                                                {!ord.Partner_Channel__r.Name}
+                                            </a>
+                                        </td>
+                                        <td width="200">
+                                            <a href="/{!ord.App_Partner__c}" target="_blank"
+                                                id="lookup{!ord.App_Partner__c}opp4"
+                                                onblur="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4').hide();"
+                                                onfocus="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4', '/{!ord.App_Partner__c}/m?retURL=/{!ord.App_Partner__c}&isAjaxRequest=1').show();"
+                                                onmouseout="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4').hide();"
+                                                onmouseover="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4', '/{!ord.App_Partner__c}/m?retURL=/{!ord.App_Partner__c}&isAjaxRequest=1').show();">
+                                                {!ord.App_Partner__r.Name}
+                                            </a>
+                                        </td>
+                                        <td width="100">
+                                            <apex:outputLink value="/apex/OrderCancelOrRefund?oId={!ord.id}&cancelOrRefund=cancel" styleClass="buttonLink">
+                                                Cancel
+                                            </apex:outputLink>
+
+                                        </td>
+                                        <td width="100">
+                                            <apex:outputLink value="/apex/OrderCancelOrRefund?oId={!ord.id}&cancelOrRefund=refund" styleClass="buttonLink">
+                                                Refund
+                                            </apex:outputLink>
+
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <apex:pageBlockSection title="KIT DETAILS:" columns="1">
+                                    <apex:outputPanel >
+                                        <apex:repeat value="{!ord.OrderItems}" var="oi">
+                                            <table width="700">
+                                                <th> Kit ID: </th>
+                                                <th> Kit Order Status: </th>
+                                                <th> Accessioning Status: </th>
+                                                <tr>
+                                                    <td width="200">
+                                                        <a href="/{!oi.id}" target="_blank"
+                                                            id="lookup{!oi.id}opp4"
+                                                            onblur="LookupHoverDetail.getHover('lookup{!oi.id}opp4').hide();"
+                                                            onfocus="LookupHoverDetail.getHover('lookup{!oi.id}opp4', '/{!oi.id}/m?retURL=/{!oi.id}&isAjaxRequest=1').show();"
+                                                            onmouseout="LookupHoverDetail.getHover('lookup{!oi.id}opp4').hide();"
+                                                            onmouseover="LookupHoverDetail.getHover('lookup{!oi.id}opp4', '/{!oi.id}/m?retURL=/{!oi.id}&isAjaxRequest=1').show();">
+                                                            {!if(oi.Kit_ID__c==null, 'View', oi.Kit_ID__c)}
+                                                        </a>
+                                                    </td>
+                                                    <td width="200"> {!oi.Kit_Order_Status__c} </td>
+                                                    <td width="200"> {!oi.Accessioning_Status__c} </td>
+                                                    <td width="100">
+                                                        <apex:commandLink value="Resend" action="{!resendKit}" styleClass="buttonLink" rendered="{!NOT(ord.Status = 'Cancelled' || oi.Sample_Status__c = 'Data Delivery Complete' || ord.Netsuite_Sales_Order_Number__c = '')}">
+                                                            <apex:param value="{!oi.id}" name="kitId"/>
+                                                        </apex:commandLink>
+                                                        <apex:outputText value="Resend" style="" styleClass="buttonLink" rendered="{!(ord.Status = 'Cancelled' || oi.Sample_Status__c = 'Data Delivery Complete' || ord.Netsuite_Sales_Order_Number__c = '')}">
+                                                        </apex:outputText>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </apex:pageBlockSection>
+                            </apex:outputPanel>
+                        </apex:pageBlockSection>
+                    </apex:repeat>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+
+            <apex:repeat value="{!orderDetails.orderList}" var="ord" rendered="{!AND(showResults,NOT(showSuperOrder))}">
+                <apex:pageBlockSection title="ORDER DETAILS:" columns="1">
+                    <apex:outputPanel >
+                        <table width="800">
+                            <th> Order ID: </th>
+                            <th> Partner: </th>
+                            <th> App Partner: </th>
+                            <tr>
+                                <td width="200">
+                                    <a href="/{!ord.id}" target="_blank"
+                                        id="lookup{!ord.id}opp4"
+                                        onblur="LookupHoverDetail.getHover('lookup{!ord.id}opp4').hide();"
+                                        onfocus="LookupHoverDetail.getHover('lookup{!ord.id}opp4', '/{!ord.id}/m?retURL=/{!ord.id}&isAjaxRequest=1').show();"
+                                        onmouseout="LookupHoverDetail.getHover('lookup{!ord.id}opp4').hide();"
+                                        onmouseover="LookupHoverDetail.getHover('lookup{!ord.id}opp4', '/{!ord.id}/m?retURL=/{!ord.id}&isAjaxRequest=1').show();">
+                                        {!ord.Helix_Order_Number__c}
+                                    </a>
+                                </td>
+                                <td width="200">
+                                    <a href="/{!ord.Partner_Channel__c}" target="_blank"
+                                        id="lookup{!ord.Partner_Channel__c}opp4"
+                                        onblur="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4').hide();"
+                                        onfocus="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4', '/{!ord.Partner_Channel__c}/m?retURL=/{!ord.Partner_Channel__c}&isAjaxRequest=1').show();"
+                                        onmouseout="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4').hide();"
+                                        onmouseover="LookupHoverDetail.getHover('lookup{!ord.Partner_Channel__c}opp4', '/{!ord.Partner_Channel__c}/m?retURL=/{!ord.Partner_Channel__c}&isAjaxRequest=1').show();">
+                                        {!ord.Partner_Channel__r.Name}
+                                    </a>
+                                </td>
+                                <td width="200">
+                                    <a href="/{!ord.App_Partner__c}" target="_blank"
+                                        id="lookup{!ord.App_Partner__c}opp4"
+                                        onblur="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4').hide();"
+                                        onfocus="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4', '/{!ord.App_Partner__c}/m?retURL=/{!ord.App_Partner__c}&isAjaxRequest=1').show();"
+                                        onmouseout="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4').hide();"
+                                        onmouseover="LookupHoverDetail.getHover('lookup{!ord.App_Partner__c}opp4', '/{!ord.App_Partner__c}/m?retURL=/{!ord.App_Partner__c}&isAjaxRequest=1').show();">
+                                        {!ord.App_Partner__r.Name}
+                                    </a>
+                                </td>
+                                <td width="100">
+                                    <apex:outputLink value="/apex/OrderCancelOrRefund?oId={!ord.id}&cancelOrRefund=cancel" styleClass="buttonLink">
+                                        Cancel
+                                    </apex:outputLink>
+
+                                </td>
+                                <td width="100">
+                                    <apex:outputLink value="/apex/OrderCancelOrRefund?oId={!ord.id}&cancelOrRefund=refund" styleClass="buttonLink">
+                                        Refund
+                                    </apex:outputLink>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                        <apex:pageBlockSection title="KIT DETAILS:" columns="1">
+                            <apex:outputPanel >
+                                <apex:repeat value="{!ord.OrderItems}" var="oi">
+                                    <table width="700">
+                                        <th> Kit ID: </th>
+                                        <th> Kit Order Status: </th>
+                                        <th> Accessioning Status: </th>
+                                        <tr>
+                                            <td width="200">
+                                                <a href="/{!oi.id}" target="_blank"
+                                                    id="lookup{!oi.id}opp4"
+                                                    onblur="LookupHoverDetail.getHover('lookup{!oi.id}opp4').hide();"
+                                                    onfocus="LookupHoverDetail.getHover('lookup{!oi.id}opp4', '/{!oi.id}/m?retURL=/{!oi.id}&isAjaxRequest=1').show();"
+                                                    onmouseout="LookupHoverDetail.getHover('lookup{!oi.id}opp4').hide();"
+                                                    onmouseover="LookupHoverDetail.getHover('lookup{!oi.id}opp4', '/{!oi.id}/m?retURL=/{!oi.id}&isAjaxRequest=1').show();">
+                                                    {!if(oi.Kit_ID__c==null, 'View', oi.Kit_ID__c)}
+                                                </a>
+                                            </td>
+                                            <td width="200"> {!oi.Kit_Order_Status__c} </td>
+                                            <td width="200"> {!oi.Accessioning_Status__c} </td>
+                                            <td width="100">
+                                                <apex:commandLink value="Resend" action="{!resendKit}" styleClass="buttonLink" rendered="{!NOT(ord.Status = 'Cancelled' || oi.Sample_Status__c = 'Data Delivery Complete' || ord.Netsuite_Sales_Order_Number__c = '')}">
+                                                    <apex:param value="{!oi.id}" name="kitId"/>
+                                                </apex:commandLink>
+                                                <apex:outputText value="Resend" style="" styleClass="buttonLink" rendered="{!(ord.Status = 'Cancelled' || oi.Sample_Status__c = 'Data Delivery Complete' || ord.Netsuite_Sales_Order_Number__c = '')}">
+                                                </apex:outputText>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </apex:repeat>
+                            </apex:outputPanel>
+                        </apex:pageBlockSection>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+            </apex:repeat>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

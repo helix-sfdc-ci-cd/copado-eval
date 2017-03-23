@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ORDER_NUMBER</field>
+    </columns>
+    <columns>
+        <field>Order.Helix_Order_Number__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Kit_ID_formatted__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Hold_Reason__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Box__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Well_Location__c</field>
+    </columns>
+    <columns>
+        <field>OrderItem.Last_Accessioning_Scan__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Samples that are currently in the HOLD queue, and their location within Hold boxes</description>
+    <filter>
+        <criteriaItems>
+            <column>OrderItem.Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>KIT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OrderItem.Accessioning_Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>HOLD</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Hold Samples</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OrderItemList</reportType>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>OrderItem.Last_Accessioning_Scan__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-11-21</startDate>
+    </timeFrameFilter>
+</Report>

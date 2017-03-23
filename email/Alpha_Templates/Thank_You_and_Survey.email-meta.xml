@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>After users sample has been received at the lab</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Thank You and Survey</name>
+    <style>none</style>
+    <subject>Feedback for Helix</subject>
+    <textOnly>Thank You
+
+Thank you again for participating in the Helix Alpha program! Your collection kits have been received at our lab in San Diego. At this time, the samples will be de-identified from your personal information and go through our sequencing process.
+
+As a last step, we’d appreciate your feedback on how the process went. Your feedback is crucial to help us make Helix the best experience it can be.
+
+
+Feedback survey
+https://www.surveymonkey.com/r/helixalpha
+Cheers,
+
+The Helix Team
+
+
+
+Contact us if you have any questions:
+alpha@helix.com
+
+Unsubscribe
+
+© 2016 Helix OpCo LLC. All rights reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>How long will my sample take?</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>How long will my sample take?</name>
+    <style>none</style>
+    <subject>Reply from Helix</subject>
+    <type>text</type>
+</EmailTemplate>

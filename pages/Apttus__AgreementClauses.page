@@ -1,0 +1,76 @@
+<!-- 
+    Apttus Contract Management
+    AgreementClauses
+    @2016 Apttus Inc. All rights reserved.    
+ -->
+<apex:page standardController="Apttus__APTS_Agreement__c"  extensions="Apttus.AgreementClausesController" 
+           docType="html-5.0" 
+           showHeader="false" 
+           tabStyle="Apttus__Agreement_Clause__c"
+           sidebar="true"> 
+    <apex:pageBlock mode="edit" rendered="{!errorDuringLoad}" id="errorBlock">
+    		<apex:pageMessages />
+    </apex:pageBlock>  
+    <apex:form >
+    <apex:pageBlock >  
+        
+        <apex:pageBlockSection columns="1" collapsible="false" showHeader="true" title="{!$Label.Apttus__AgreementClauseTitleAgreementClauses}">
+        </apex:pageBlockSection>
+        <apex:pageBlockTable value="{!agreementClauses}" 
+                                     var="aClause"
+                                     width="90%" columns="10">
+            <apex:column width="5%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseActive}</apex:facet>
+                <apex:inputcheckbox value="{!aClause.Apttus__Active__c}" disabled="true" >
+                </apex:inputcheckbox>
+            </apex:column>
+            
+            <apex:column width="5%" >
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseNumber}</apex:facet>
+                <apex:outputLink value="/apex/AgreementClauseDetails?id={!aClause.Id}&agreementid={!agreementId}">{!aClause.Name}</apex:outputLink>
+            </apex:column>
+
+            <apex:column width="10%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseName}</apex:facet>
+				<apex:outputField value="{!aClause.Apttus__Template__c}" rendered="{!aClause.Apttus__Template__c != null}"> </apex:outputField>
+                <apex:outputField value="{!aClause.Apttus__User__c}" rendered="{!aClause.Apttus__User__c != null}" > </apex:outputField>
+            </apex:column>
+
+            <apex:column width="30%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseText}</apex:facet>
+                <apex:outputText escape="false" value="{!aClause.Apttus__Text__c}"> </apex:outputText>
+            </apex:column>
+
+<!--            <apex:column width="5%">
+                <apex:facet name="header">{!$Label.AgreementClauseIterationCount}</apex:facet>
+            </apex:column> -->
+
+            <apex:column width="5%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseSource}</apex:facet>
+                <apex:outputText value="{!aClause.Apttus__Action__c}"/>
+            </apex:column>
+
+            <apex:column width="10%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseCreatedBy}</apex:facet>
+                <apex:outputField value="{!aClause.CreatedById}"/>
+            </apex:column>
+
+            <apex:column width="10%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseCreatedOn}</apex:facet>
+                <apex:outputField value="{!aClause.CreatedDate}"/>
+            </apex:column>
+
+            <apex:column width="10%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseLastIterationBy}</apex:facet>
+                <apex:outputField value="{!aClause.LastModifiedByID}"/>
+            </apex:column>
+
+            <apex:column width="10%">
+                <apex:facet name="header">{!$Label.Apttus__AgreementClauseLastIterationDate}</apex:facet>
+                <apex:outputField value="{!aClause.LastModifiedDate}"/>
+            </apex:column>
+            
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

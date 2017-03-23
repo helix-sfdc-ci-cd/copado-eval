@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>38.0</apiVersion>
+    <availableInTouch>true</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>This visualforce component is used in the Activity page layout and it allows users to play-back audio recordings from CTI phone calls (every incoming/outgoing call is recorded and stored on NewVoiceMedia servers). Code includes an iFrame embedded audio player giving Client Services managers the ability to listen to recorded calls within Salesforce rather than having to search for them in the NewVoiceMedia external app. The activity layout will only show this change for users with the &quot;Helix Client Services&quot; and &quot;system administrator&quot; profiles. Other SFDC user won&apos;t notice a change to the layout.</description>
+    <label>EmbedPlayer</label>
+</ApexPage>

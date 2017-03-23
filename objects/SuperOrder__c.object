@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Collection of Orders related to a single order placed by the end user.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Follow_up_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Follow-up Details</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Follow_up_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Triggers case creation in the Support queue</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Triggers case creation in the Support queue</inlineHelpText>
+        <label>Follow-up Required</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fully_Shipped__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>All lines related to this SuperOrder have shipped out. Populated by trigger</description>
+        <externalId>false</externalId>
+        <inlineHelpText>All lines related to this SuperOrder have shipped out.</inlineHelpText>
+        <label>Fully Shipped</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Gift__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Denotes if a superorder is a gift or not</description>
+        <externalId>false</externalId>
+        <label>Gift</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Netsuite_Integration_Error_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Netsuite Integration Error Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Netsuite_SuperOrder_Integration_Trigger__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checked via WFR when conditions require SFDC-Boomi-NS integration due to SuperOrder Updates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked via WFR when conditions require SFDC-Boomi-NS integration due to SuperOrder Updates.</inlineHelpText>
+        <label>Netsuite SuperOrder Integration Trigger</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PartnerChannelOrderNumber__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Unique Key on SuperOrder to ensure duplicate orders are prevented. Concatenation of Partner ID and Partner Order Number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Key on SuperOrder to ensure duplicate orders are prevented. Concatenation of Partner ID and Partner Order Number.</inlineHelpText>
+        <label>PartnerChannelOrderNumber</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Channel__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Account that corresponds to the channel this order originated through. Helix Marketplace will pass Partner ID and on Order creation, the corresponding Account with PartnerID will be referenced on the SuperOrder record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Account that corresponds to the channel this order originated through. Helix Marketplace will pass Partner ID and on Order creation, the corresponding Account with PartnerID will be referenced on the SuperOrder record.</inlineHelpText>
+        <label>Partner Channel</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>SuperOrders</relationshipLabel>
+        <relationshipName>PartnerChannelSuperOrders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner_ID__c</fullName>
+        <description>Partner ID for the Partner Channel associated to this SuperOrder</description>
+        <externalId>false</externalId>
+        <formula>Partner_Channel__r.Partner_ID__c</formula>
+        <inlineHelpText>Partner ID for the Partner Channel associated to this SuperOrder</inlineHelpText>
+        <label>Partner ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Order_Number__c</fullName>
+        <description>Order Number supplied by the Partner.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Order Number supplied by the Partner.</inlineHelpText>
+        <label>Partner Order Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Captured__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When payment capture is set to true, SFDC needs to notify NS that the &quot;Credit Card Charged&quot; field should be set to true. 
+
+When payment capture is set to false, SFDC should still create the SO, WO, and PO, but the &quot;Credit Card Charged&quot; field should be set to false on the SO.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stripe payment status submitted by HM and relayed to &quot;Credit Card Charged&quot; field in Netsuite.</inlineHelpText>
+        <label>Payment Captured</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Captured_in_Netsuite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Payment Captured successfully transferred to Netsuite.</inlineHelpText>
+        <label>Payment Captured in Netsuite</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Stripe_Customer_ID__c</fullName>
+        <description>Used by HM if charge authorization has expired.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by HM if charge authorization has expired.</inlineHelpText>
+        <label>Stripe Customer ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SuperOrder_Count__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SuperOrder Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Amount_Charged__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Amount Charged</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Net_Amount__c</fullName>
+        <description>Calculates the Net amount from the Total Amount Charged - Total Amount Refunded Amount</description>
+        <externalId>false</externalId>
+        <formula>Total_Amount_Charged__c -  Total_Refunded_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Calculates the Net amount from the Total Amount Charged - Total Amount Refunded Amount</inlineHelpText>
+        <label>Total Net Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Refunded_Amount__c</fullName>
+        <description>Currency field that captures the sum of all Order Event records of the Refund type. Used in calculating the Net Amount of a Super Order.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Currency field that captures the sum of all Order Event records of the Refund type. Used in calculating the Net Amount of a Super Order.</inlineHelpText>
+        <label>Total Refunded Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Tax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>transactionid__c</fullName>
+        <description>Transaction ID passed by payment partner to Helix Marketplace and then SFDC</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Transaction ID passed by payment partner to Helix Marketplace and then SFDC</inlineHelpText>
+        <label>Transaction ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>SuperOrder</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Today_s_SuperOrders</fullName>
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Today&apos;s SuperOrders</label>
+    </listViews>
+    <nameField>
+        <displayFormat>HX{00000000}</displayFormat>
+        <label>SuperOrder Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>SuperOrders</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Services_Toolbox</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Services Toolbox</masterLabel>
+        <openType>replace</openType>
+        <page>SuperOrderToolbox</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

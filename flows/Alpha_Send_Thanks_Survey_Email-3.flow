@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sends Thanks/Survey Email when the first kit on an order is set to Accession Status = Pass. Prevents duplicate emails due to multiple kit lines.</description>
+    <label>Alpha Send Thanks/Survey Email</label>
+    <processType>Workflow</processType>
+</Flow>

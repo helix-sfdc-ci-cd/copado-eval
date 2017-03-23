@@ -1,0 +1,697 @@
+<apex:page controller="VisualQCControllerExtension" showHeader="true" sidebar="false" standardStylesheets="false" docType="html-5.0" action="{!checkAccessionLocation}">
+
+<apex:stylesheet value="{!URLFOR($Resource.VisualQC, 'bootstrap-3.3.7/css/bootstrap.min.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.VisualQC, 'bootstrap-3.3.7/css/bootstrap-theme.min.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.VisualQC, 'DataTables/datatables.min.css')}"/>
+
+<apex:includeScript value="{!URLFOR($Resource.VisualQC, 'jquery-3.1.1.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.VisualQC, 'bootstrap-3.3.7/js/bootstrap.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.VisualQC, 'DataTables/datatables.min.js')}"/>
+
+<style type="text/css">
+	/*#mode {
+		padding-left: 150px;
+		font-size: 17px;
+	}*/
+
+	.kitMsg {
+		text-align: center; /* center checkbox horizontally */
+    	vertical-align: middle; /* center checkbox vertically */
+		font-size: 17px;
+		color: #333300;
+		display: inline-block;
+	}
+
+	#btnEnter {
+		margin-top: 30px;
+		margin-left: 100px;
+		color: white;
+		background-color: #005ce6;
+	}
+
+	#scanTable {
+		margin: 0 auto;
+		width: 85%;
+
+	}
+
+	.picklist {
+		height: 28px;
+		font-size: 15px;
+	}
+
+	input {
+  		display: inline-block;
+  		border: solid 1px;
+	}
+
+
+</style>
+
+<script type="text/javascript">
+var $j = jQuery.noConflict();
+	window.onload = function(){
+		//alert('Start');
+		jQuery('[id$=QcForm]').submit(function (evt) {
+		    evt.preventDefault();
+		    window.history.back();
+		});
+
+		jQuery('[id$=QcForm]').submit(false);
+		//jQuery('[id$=QcForm]').prop('disabled', true);
+        $j('[id$=inputKitID]').focus();
+        $j('[id$=labelBox]').hide();
+    	$j('[id$=inputBox]').hide();
+    	$j('[id$=kitMessage]').hide();
+
+    };
+
+    function playFailSound() {
+    	var failSound = document.createElement("audio");
+        failSound.src="{!$Resource.Sound_on_Fail}";
+        failSound.volume=0.10;
+        failSound.autoPlay=false;
+        failSound.preLoad=true;
+        failSound.play();
+    };
+
+
+  //   function validateInput() {
+  //       var validatorVar = jQuery('[id$=QcForm]').validate();
+
+  // 		jQuery('[id$=inputKitID]').rules( 'add', {
+		//   required: true,
+		//   minlength: 2,
+		//   messages: {
+		//     required: "Required input",
+		//     minlength: jQuery.validator.format("Please, at least {0} characters are necessary")
+		//   }
+		// });
+  //   };
+
+    function deselectAll() {
+    	// alert('Inside');
+    	jQuery('[id$=selectAll]').attr('checked', false);
+    }
+
+    function preventSubmission(event) {
+    //jQuery(this).keydown(function(e) {
+    	//alert('New entry');
+	  	if (event.which == 13) {
+	     	event.preventDefault();
+	   	}
+	}
+
+</script>
+
+
+
+<!-- <html lang="en" >xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" -->
+<html lang="en">
+<head>
+	<title></title>
+	<!-- <apex:stylesheet value="{!URLFOR($Resource.SLDS102, 'assets/styles/salesforce-lightning-design-system.css')}" /> -->
+
+</head>
+<body id="QCpage">
+<!-- <button class="slds-button">Button</button> -->
+	<header>
+	</header>
+
+
+
+	<apex:form id="QcForm">
+		<div style="text-align: center;">
+			<apex:outputPanel id="errorMsg" layout="block" style="height: 25px;">
+				<apex:outputPanel id="kitMessage" styleClass="kitMsg" >
+
+					<apex:outputLabel id="errorColor" rendered="{!IF(kitFound, false, true)}" value="Kit ID NOT FOUND!" style="padding-top: 2px; color: #4d2600;">
+					</apex:outputLabel>
+					<apex:outputLabel id="duplicate" rendered="{!IF(duplicateFound, true, false)}" value="Duplicate Barcode!" style="padding-top: 2px; color: #4d2600;">
+					</apex:outputLabel>
+					<apex:outputLabel id="invalidWL" rendered="{!IF(invalidWL, true, false)}" value=" Invalid Well Location. Use A1 through H12 for well locations" style="padding-top: 2px; color: #4d2600;">
+					</apex:outputLabel>
+					<apex:outputLabel id="isSelectedItem" rendered="{!IF(!isSelected, true, false)}" value=" Please select record in the table below" style="padding-top: 2px; color: #4d2600;">
+					</apex:outputLabel>
+				</apex:outputPanel>
+			</apex:outputPanel>
+		</div>
+
+		<div class="row" style="width: 100%;">
+
+			<apex:outputPanel id="apexmessages">
+				<apex:pageMessages />
+				<!-- <apex:messages /> -->
+			</apex:outputPanel>
+
+			<div style="padding-top: 0px; ">
+				<!-- <div style="background-color: red"> -->
+				<apex:outputPanel style="background-color: yellow">
+					<apex:actionFunction name="clearScanList" action="{!clearScanList}" reRender="tables">
+					</apex:actionFunction>
+<!-- Labels -->
+						<div class="col-md-3" id="labels" style="text-align: right;">
+							<apex:outputLabel id="accMode" style="font-size: 17px; display: block; white-space: nowrap">Accessioning Mode:</apex:outputLabel>
+
+							<apex:outputPanel id="cycle" >
+								<apex:outputPanel rendered="{!IF(mode == 'pass', true, false)}">
+			        				<apex:outputLabel id="cycleLable" style="display: block; margin-top: 20px; font-size: 17px;">Cycle Maximum:</apex:outputLabel>
+			        				<apex:outputLabel id="curValLable" style="display: block; margin-top: 20px; font-size: 17px;">Current Value:</apex:outputLabel>
+								</apex:outputPanel>
+							</apex:outputPanel>
+
+							<apex:outputPanel id="reasonPickList" >
+				        		<apex:outputPanel id="reasonPickListCond" rendered="{!IF (mode == 'fail', true, false)}">
+					        		<apex:outputLabel style="display: block; font-size: 17px; margin-top: 20px">Failure Reason:</apex:outputLabel>
+				        		</apex:outputPanel>
+				        	</apex:outputPanel>
+
+				        	<apex:outputPanel id="otherReason">
+			        			<apex:outputPanel id="otherReasonCond" rendered="{!IF(failureReason == 'Other', true, false)}">
+			        				<apex:outputLabel id="newReasonLable" style="display: block; margin-top: 20px; font-size: 17px;">Other Failure Reason:</apex:outputLabel>
+			        			</apex:outputPanel>
+			        		</apex:outputPanel>
+
+			        		<apex:outputPanel id="reviewFindKit" >
+				        		<apex:outputPanel rendered="{!IF(mode == 'failReview', true, false)}">
+					        		<apex:outputLabel id="labelFind" style="display: block; font-size: 17px; margin-top: 23px">Find Kit:</apex:outputLabel>
+								</apex:outputPanel>
+							</apex:outputPanel>
+
+
+						</div>
+
+<!-- Values -->
+					<div class="col-md-3" id="values" style="padding-left: 11px; text-align: left;">
+		            	<apex:selectList styleClass="picklist" style="-webkit-appearance: none; display: block; font-size: 15px;" value="{!mode}" id="modePickList" size="1" disabled="{!IF(accessionLocation = '', true, false)}">
+		            		<apex:selectOption itemValue="pass" itemLabel="Pass Visual QC"/>
+		            		<apex:selectOption itemValue="fail" itemLabel="Fail Visual QC" />
+		            		<apex:selectOption itemValue="storage" itemLabel="Set Storage Location" />
+		            		<apex:selectOption itemValue="failReview" itemLabel="Failure Review" rendered="{!IF(managerAccess == true, true, false)}"/>
+		        			<apex:actionSupport event="onchange" reRender="reasonPickList, apexmessages, reasonPickListV, managerPart, managerPart1, errorMsg, secondPanel, secondPanel1, secondPanelVal, secondPanelVal1, cycle, cycleV, otherReason, managerPage, otherReason1, updateKitField1, scanHistory, jsPanel, reviewFindKit, reviewFindKit1, refreshBtn, btnEnterPanel">
+		        				<apex:param assignTo="{!kitFound}" value="true"/>
+		        				<apex:param assignTo="{!failureReason}" value="" />
+								<apex:param assignTo="{!changeReason}" value="" />
+								<apex:param assignTo="{!otherReasonValue}" value="" />
+								<apex:param assignTo="{!wellLocation}" value="" />
+								<apex:param assignTo="{!invalidWL}" value="false" />
+								<apex:param assignTo="{!duplicateFound}" value="false" />
+								<apex:param assignTo="{!isSelected}" value="true" />
+	             			</apex:actionSupport>
+		        		</apex:selectList>
+
+		        		<apex:outputPanel id="cycleV" >
+		        		<apex:outputPanel rendered="{!IF(mode == 'pass', true, false)}">
+			        		<apex:inputText id="cycleMax" value="{!cycleMaximum}" style="display:block; margin-top: 14px; height: 30px; width: 100px; font-size: 14px;" onkeypress="preventSubmission(event)" maxlength="4" html-type="number"/>
+			        		<apex:inputText id="currentVal" value="{!currentValue}" onkeypress="preventSubmission(event)" style="display:block; margin-top: 17px; height: 30px; width: 100px; font-size: 14px;"/>
+		        		<!-- <br style="clear:both;"/> -->
+		        		</apex:outputPanel>
+		        		</apex:outputPanel>
+
+						<apex:outputPanel id="reasonPickListV" >
+			        		<apex:outputPanel rendered="{!IF (mode == 'fail', true, false)}">
+        						<apex:selectList styleClass="picklist" style="-webkit-appearance: none; margin-top: 20px; font-size: 15px;" id="chooseReason" value="{!failureReason}" size="1">
+				            		<apex:selectOption itemValue="Low Volume" itemLabel="Low Volume"></apex:selectOption>
+				            		<apex:selectOption itemValue="High Volume" itemLabel="High Volume"></apex:selectOption>
+				            		<apex:selectOption itemValue="No Preservative" itemLabel="No Preservative"></apex:selectOption>
+				        			<apex:selectOption itemValue="Color Off / Opacity" itemLabel="Color Off / Opacity"></apex:selectOption>
+				        			<apex:selectOption itemValue="Unknown Particulates" itemLabel="Unknown Particulates"></apex:selectOption>
+				        			<apex:selectOption itemValue="Spill / Leak / Damaged Kit" itemLabel="Spill / Leak / Damaged Kit"></apex:selectOption>
+				        			<apex:selectOption itemValue="Other" itemLabel="Other (Please Specify)"></apex:selectOption>
+				        			<apex:actionSupport event="onchange" reRender="otherReason, apexmessages, otherReason1, moveFocus, updateReason" oncomplete="moveFocus3()" ></apex:actionSupport>
+				        		</apex:selectList>
+				        	</apex:outputPanel>
+				        </apex:outputPanel>
+
+
+				        <apex:outputPanel id="otherReason1">
+			        		<apex:outputPanel id="otherReasonCond1" rendered="{!IF(failureReason == 'Other', true, false)}">
+						        <apex:inputText id="newReason" value="{!otherReasonValue}" title="Max length is 255 chars." style="display: block; margin-top: 18px; height: 30px; width: 205px; font-size: 14px;" maxlength="255" onkeypress="moveFocus2(event)">
+	        					<script type="text/javascript">
+									function moveFocus2(event) {
+			    						var key;
+										if(window.event)
+									        key = window.event.keyCode;     //IE
+									    else
+									        key = event.which;     //firefox
+									    if(key === 13) {
+									    	event.preventDefault();
+			       							jQuery('[id$=inputKitID]').focus();
+			 						    }
+										// })
+									}
+								</script>
+
+					        	</apex:inputText>
+					        </apex:outputPanel>
+					    </apex:outputPanel>
+
+					    <apex:outputPanel id="reviewFindKit1" >
+				        	<apex:outputPanel rendered="{!IF(mode == 'failReview', true, false)}">
+					    		<apex:inputText id="inputKitToFind" value="{!searchKitId}" onkeydown="searchKit(event)" style="margin-top: 20px; height: 30px; width: 172px; font-size: 14px;">
+					    			<script type="text/javascript">
+									function searchKit(event) {
+										var key;
+										if(window.event)
+									        key = window.event.keyCode;     //IE
+									    else
+									        key = event.which;     //firefox
+									    if(key === 13) {
+									    	event.preventDefault();
+											searchKitMethod();
+									    }
+									}
+									</script>
+
+					    		</apex:inputText>
+								<apex:actionFunction name="searchKitMethod" action="{!getFailReviewItems}" reRender="tables, apexmessages, errorMsg, updateKitField1">
+								</apex:actionFunction>
+
+
+							</apex:outputPanel>
+						</apex:outputPanel>
+
+						<apex:outputPanel id="refreshBtn" style="display: block; text-align: left;">
+							<apex:outputPanel rendered="{!IF(mode == 'failReview', true, false)}">
+								<apex:commandButton id="btnRefresh" action="{!refreshFailReviewItems}" value="Refresh Failure Review Records" onclick="jQuery('[id$=inputKitToFind]').val('');" oncomplete="jQuery('[id$=selectAll]').attr('checked', false);" style="margin-top: 21px; background: #0073e6 !important; color: white; height: 30px; width: 252px; font-size: 14px;" reRender="tables, errorMsg, updateKitField1">
+									<apex:param assignTo="{!kitFound}" value="true" />
+								</apex:commandButton>
+							</apex:outputPanel>
+        				</apex:outputPanel>
+
+	        		</div>
+	        		<!-- </div> -->
+	        		</apex:outputPanel>
+	        		<!-- </div> -->
+
+	        		<apex:outputPanel id="scanHistory">
+	        			<script type="text/javascript">
+	        				function clearList() {
+	        					clearScanList();
+	        				}
+	        				clearList();
+	        			</script>
+	        		</apex:outputPanel>
+
+					<apex:outputPanel id="updateKitField1" >
+						<script type="text/javascript">
+							function updKit1(){
+								var kitF = {!kitFound};
+								if(kitF) {
+									jQuery('[id$=inputKitToFind]').css('border', 'solid 1px');
+									jQuery('[id$=inputKitToFind]').css('border-color', 'black');
+									jQuery('[id$=inputKitToFind]').val('');
+	    							jQuery('[id$=inputKitToFind]').focus();
+								}
+								else {
+									jQuery('[id$=inputKitToFind]').css('border', 'solid 2px');
+									jQuery('[id$=inputKitToFind]').css('border-color', 'red');
+									jQuery('[id$=inputKitToFind]').focus();
+								}
+							}
+							updKit1();
+						</script>
+
+					</apex:outputPanel>
+
+
+        <!-- </apex:pageBlock> -->
+
+	        		<apex:outputPanel id="jsPanel" >
+			        	<script type="text/javascript">
+						function checkValue(){
+							jQuery('[id$=QcForm]').css('background-color', '#cccccc');
+		    				if(jQuery('[id$=modePickList]').val() === 'fail'){
+		        				jQuery('[id$=chooseReason]').focus();
+		    				}
+		    				else if(jQuery('[id$=modePickList]').val() === 'storage') {
+		    					jQuery('[id$=inputBox]').val('');
+		        				jQuery('[id$=inputWell]').val('');
+		    				}
+
+		    				else if(jQuery('[id$=modePickList]').val() === 'failReview'){
+		    					jQuery('[id$=inputKitToFind]').focus();
+		    				}
+		    				else {
+		    					jQuery('[id$=inputKitID]').focus();
+		    				}
+						}
+						checkValue();
+						</script>
+					</apex:outputPanel>
+
+					<apex:outputPanel id="moveFocus">
+						<script type="text/javascript">
+							function moveToKit() {
+								if ('{!failureReason}' === 'Other') {
+									jQuery('[id$=newReason]').val('');
+									jQuery('[id$=newReason]').focus();
+								}
+								else {
+									//jQuery('[id$=newReason]').val('');
+									jQuery('[id$=inputKitID]').focus();
+								}
+							}
+							moveToKit();
+						</script>
+					</apex:outputPanel>
+
+					<!-- <apex:outputPanel id="updateReason">
+						<apex:actionSupport>
+							<apex:param assignTo="{!failureReason}" value="Other"/>
+						</apex:actionSupport>
+					</apex:outputPanel> -->
+
+				</div>
+
+				<!-- <div style="padding-top: 0px; width: 50%; float: right;"> -->
+
+<!-- labels second -->
+
+				<div class="col-md-3" id="labels2" style="text-align: right; display: block; max-width: 150px;">
+
+					<apex:outputPanel id="secondPanel">
+						<apex:outputPanel rendered="{!IF(mode != 'failReview', true, false)}">
+							<apex:outputLabel id="labelKit1" style="display: block; margin-top: 1px; font-size: 17px;">Kit:</apex:outputLabel>
+						</apex:outputPanel>
+					</apex:outputPanel>
+
+					<apex:outputPanel id="secondPanel1">
+						<apex:outputPanel rendered="{!IF(mode == 'storage', true, false)}">
+
+							<apex:outputLabel id="labelBox" style="display: block; margin-top: 15px; font-size: 17px;">Box:</apex:outputLabel>
+
+							<apex:outputLabel id="labelWell" style="display: block; margin-top: 15px; font-size: 17px;">Well:</apex:outputLabel>
+
+						</apex:outputPanel>
+					</apex:outputPanel>
+
+					<apex:outputPanel id="managerPart">
+						<apex:outputPanel id="managerPartCond" rendered="{!IF(mode == 'failReview', true, false)}" >
+							<apex:outputLabel id="reasonLabel" style="font-size: 17px; white-space: nowrap">Failure Reason:</apex:outputLabel>
+						</apex:outputPanel>
+						<apex:outputPanel id="managerOtherReason" rendered="{!IF(changeReason == 'Other', true, false)}" >
+							<apex:outputLabel style="font-size: 17px; white-space: nowrap; margin-top: 16px;">Other Reason:</apex:outputLabel>
+						</apex:outputPanel>
+					</apex:outputPanel>
+				</div>
+					<!-- if(validateKit()) {findKit();} -->
+<!-- values second -->
+				<div class="col-md-3" id="values2" style="text-align: left; padding-left: 6px;">
+
+					<apex:outputPanel id="secondPanelVal">
+						<apex:outputPanel rendered="{!IF(mode != 'failReview', true, false)}">
+							<apex:inputText id="inputKitID" value="{!kitID}" style="display:block; margin-bottom: 10px; height: 30px; width: 165px; font-size: 14px; border: solid 1px;" onclick="jQuery(this).val('');"></apex:inputText>
+
+							<apex:outputPanel id="updateKitField" >
+								<script type="text/javascript">
+								function updKit(){
+									var kitF = {!kitFound};
+									var invalidLoc = {!invalidWL};
+									var modeV = '{!mode}';
+									if(kitF) {
+										jQuery('[id$=inputKitID]').css('border', 'solid 1px');
+										jQuery('[id$=inputKitID]').css('border-color', 'black');
+										jQuery('[id$=inputKitID]').val('');
+										jQuery('[id$=inputKitID]').focus();
+										//Customer doesn't want to clear this field
+										//jQuery('[id$=inputBox]').val('');
+									}
+									else {
+										jQuery('[id$=inputKitID]').css('border', 'solid 2px');
+										jQuery('[id$=inputKitID]').css('border-color', 'red');
+										jQuery('[id$=inputKitID]').focus();
+									}
+									if(modeV == 'storage' && kitF == true) {
+										jQuery('[id$=inputWell]').val('{!wellLocation}');
+										if(jQuery('[id$=inputWell]').val() == '' ||
+											invalidLoc == true) {
+		        							jQuery('[id$=inputWell]').focus();
+		        						}
+		        						else {
+		        							//jQuery('[id$=inputBox]').focus();
+		        						}
+									}
+								}
+								updKit();
+								</script>
+							</apex:outputPanel>
+						</apex:outputPanel>
+					</apex:outputPanel>
+
+					<div>
+					<apex:outputPanel id="secondPanelVal1">
+						<apex:outputPanel rendered="{!IF(mode == 'storage', true, false)}">
+							<apex:inputText id="inputBox" style="display: block; height: 30px; width: 165px; font-size: 14px;" value="{!box}" maxlength="20" onkeydown="moveFocus(event)">
+							<script type="text/javascript">
+								function moveFocus(event) {
+									var key;
+									if(window.event)
+								        key = window.event.keyCode;     //IE
+								    else
+								        key = event.which;     //firefox
+								    if(key === 13) {
+								    	event.preventDefault();
+	       								jQuery('[id$=inputKitID]').focus();
+		 						    }
+								// })
+								}
+							</script>
+							</apex:inputText>
+
+							<apex:inputText id="inputWell" style="display: inline; margin-top: 10px; margin-right: 5px; height: 30px; width: 165px; font-size: 14px;" value="{!wellLocation}" onkeydown="moveFocus1(event)" onclick="jQuery(this).val('');" maxlength="5" title="Max length is 3 chars."></apex:inputText>
+							<script type="text/javascript">
+								function moveFocus1(event) {
+		    						var key;
+									if(window.event)
+								        key = window.event.keyCode;     //IE
+								    else
+								        key = event.which;     //firefox
+								    if(key === 13) {
+								    	event.preventDefault();
+		       							jQuery('[id$=inputBox]').focus();
+		 						    }
+								// })
+								}
+							</script>
+						</apex:outputPanel>
+					</apex:outputPanel>
+
+
+					<apex:outputPanel id="btnEnterPanel">
+						<apex:outputPanel rendered="{!IF(mode != 'failReview', true, false)}">
+							<apex:commandButton id="btnEnter" value="Enter" action="{!findKitIdAndContact}" reRender="tables, apexmessages, errorMsg, pageColor, cycle, cycleV, updateKitField" onclick="validateKit1()" style="display: inline; background: #005ce6; color: white; height: 31px; width: 61px; font-size: 16px;">
+							</apex:commandButton>
+								<script type="text/javascript">
+					                function validateKit1() {
+					                    if(jQuery('[id$=inputKitID]').val() == '') {
+					                    jQuery('[id$=inputKitID]').css('border', 'solid 2px');
+					                    jQuery('[id$=inputKitID]').css('border-color', 'red');
+					                    alert("Kit field is required");
+					                    }
+					                }
+				              </script>
+
+						</apex:outputPanel>
+					</apex:outputPanel>
+					</div>
+
+					<apex:outputPanel id="managerPart1">
+						<apex:outputPanel id="managerPartCond1" rendered="{!IF(mode == 'failReview', true, false)}" >
+							<apex:selectList style="-webkit-appearance: none; font-size: 15px;" id="changeReason" value="{!changeReason}" size="1">
+		            		<apex:selectOption itemValue="Low Volume" itemLabel="Low Volume"></apex:selectOption>
+		            		<apex:selectOption itemValue="High Volume" itemLabel="High Volume"></apex:selectOption>
+		            		<apex:selectOption itemValue="No Preservative" itemLabel="No Preservative"></apex:selectOption>
+		        			<apex:selectOption itemValue="Color Off / Opacity" itemLabel="Color Off / Opacity"></apex:selectOption>
+		        			<apex:selectOption itemValue="Unknown Particulates" itemLabel="Unknown Particulates"></apex:selectOption>
+			        		<apex:selectOption itemValue="Spill / Leak / Damaged Kit" itemLabel="Spill / Leak / Damaged Kit"></apex:selectOption>
+							<apex:selectOption itemValue="Other" itemLabel="Other (Please Specify)"></apex:selectOption>
+		        			<apex:selectOption id="changeToPass" itemValue="Change to Pass" itemLabel="Change to Pass"></apex:selectOption>
+		        			<apex:actionSupport event="onchange" reRender="moveFocus, managerPart, managerOtherReason1" ></apex:actionSupport>
+		        		</apex:selectList>
+						<apex:outputPanel id="managerOtherReason1">
+							<apex:inputText id="managerChangeReason" rendered="{!IF(changeReason == 'Other', true, false)}" value="{!otherReasonValue}" title="Max length is 255 chars." style="display: block; margin-top: 18px; height: 30px; width: 205px; font-size: 14px;" maxlength="255">
+							<script type="text/javascript">
+								jQuery('[id$=managerChangeReason]').val('');
+								jQuery('[id$=managerChangeReason]').focus();
+							</script>
+							</apex:inputText>
+
+						</apex:outputPanel>
+		        		<br/>
+		        		<apex:commandButton id="btnUpdate" action="{!selectProductToUpdate}" value="UPDATE FAILURES" reRender="tables, errorMsg" style="display: block; margin-top: 5px; background: #0073e6; color: white; height: 30px; width: 140px;" oncomplete="jQuery('[id$=selectAll]').attr('checked', false);">
+						</apex:commandButton>
+						<br/>
+						<apex:commandButton id="btnConfirm" action="{!selectProductToConfirm}" value="CONFIRM FAILURES" reRender="tables, errorMsg" style="display: block; background: #0073e6; color: white; margin-top: 15px; height: 30px; width: 140px;" oncomplete="jQuery('[id$=selectAll]').attr('checked', false);">
+						</apex:commandButton>
+
+						</apex:outputPanel>
+					</apex:outputPanel>
+
+
+
+					</div>
+					<!-- <apex:outputPanel > -->
+					<apex:outputPanel id="pageColor">
+							<script type="text/javascript">
+								function changeBackground() {
+									var loading = {!initialLoading};
+									var contact = {!contactFound};
+									var checkmode = '{!mode}';
+									var duplicate = {!duplicateFound};
+									jQuery('[id$=QcForm]').css('background-color', '#cccccc');//gray
+									if(checkmode === 'pass') {
+										if(duplicate) {
+											jQuery('[id$=QcForm]').css('background-color', '#cccccc');//gray
+											playFailSound();
+										}
+										else if (contact) {
+										setTimeout(function() {
+											jQuery('[id$=QcForm]').css('background-color', '#5cd65c')}, 100);//green
+										}
+										else {
+											if(loading) {
+												jQuery('[id$=QcForm]').css('background-color', '#cccccc');//gray
+												}
+											else {
+											setTimeout(function() {
+												// jQuery('[id$=soundFail]').play(); //sound on Fail
+												jQuery('[id$=QcForm]').css('background-color', '#ff471a')}, 100);//red
+												playFailSound();
+											}
+										}
+									} else if (checkmode === 'fail' && !contact) {
+										if(loading) {
+											jQuery('[id$=QcForm]').css('background-color', '#cccccc');//gray
+											}
+										else {
+										setTimeout(function() {
+											// jQuery('[id$=soundFail]').play(); //sound on Fail
+											jQuery('[id$=QcForm]').css('background-color', '#ff471a')}, 100);//red
+											playFailSound();
+										}
+									}
+								}
+							changeBackground();
+							</script>
+					</apex:outputPanel>
+
+				<!-- </apex:form> -->
+				<!-- </div> -->
+
+				<div id="scanTable" style="clear: both; height: 100%; padding-top: 10px;">
+					<!-- <div style="height: 20px; ">
+						<apex:outputPanel id="placeHolder" layout="block"  >
+						</apex:outputPanel>
+					</div> -->
+
+					<div >
+
+
+
+						<apex:pageBlock id="tables" title="Scan History">
+							<apex:outputPanel id="makescroll" layout="block" style="height: 45vh; overflow: scroll;">
+								<apex:pageBlockTable id="passTable" rendered="{!IF(mode == 'pass', true, false)}" styleClass="table table-hover tablesorter table-bordered table-striped chooseTable" value="{!scanHistoryList}" var="shl" headerClass="header"  style="background-color: #c2d6d6; border-color: #1a1a1a;">
+									<apex:column value="{!shl.kitIdform}" headerValue="Kit ID" />
+									<apex:column value="{!shl.currentValScanned}" headerValue="Current Value" />
+									<apex:column value="{!shl.accessioningStatus}" headerValue="Accessioning Status" />
+									<apex:column value="{!shl.holdReason}" headerValue="Hold Reason" />
+									<apex:column value="{!shl.boxScanned}" headerValue="Box" />
+									<apex:column value="{!shl.wellLocScanned}" headerValue="Well Location" />
+									<apex:column value="{!shl.lastScanDateTime}" headerValue="Last Accession Scan" />
+								</apex:pageBlockTable>
+								<script type="text/javascript">
+								$j = jQuery.noConflict();
+								$j(document).ready(function () {
+									$j("[id$=passTable]").DataTable({
+										stateSave: true,
+										paging: false,
+										order: [[6, 'desc']]
+									});
+								});
+								</script>
+
+								<apex:pageBlockTable id="failTable" rendered="{!IF(mode == 'fail', true, false)}" styleClass="table table-hover tablesorter table-bordered table-striped chooseTable" value="{!scanHistoryList}" var="shl" headerClass="header"  style="background-color: #c2d6d6; border-color: #1a1a1a;">
+									<apex:column value="{!shl.kitIdform}" headerValue="Kit ID" />
+									<apex:column value="{!shl.accessioningStatus}" headerValue="Accessioning Status" />
+									<apex:column value="{!shl.failureReasonScanned}" headerValue="Failure Reason"/>
+                                    <apex:column value="{!shl.holdReason}" headerValue="Hold Reason" />
+									<apex:column value="{!shl.lastScanDateTime}" headerValue="Last Accession Scan" />
+								</apex:pageBlockTable>
+								<script type="text/javascript">
+								$j = jQuery.noConflict();
+								$j(document).ready(function () {
+									$j("[id$=failTable]").DataTable({
+										stateSave: true,
+										paging: false,
+										order: [[3, 'desc']]
+									});
+								});
+								</script>
+
+								<apex:pageBlockTable id="storageTable" rendered="{!IF(mode == 'storage', true, false)}" styleClass="table table-hover tablesorter table-bordered table-striped chooseTable" value="{!scanHistoryList}" var="shl" headerClass="header"  style="background-color: #c2d6d6; border-color: #1a1a1a;">
+									<apex:column value="{!shl.kitIdform}" headerValue="Kit ID" />
+									<apex:column value="{!shl.accessioningStatus}" headerValue="Accessioning Status" />
+									<apex:column value="{!shl.holdReason}" headerValue="Hold Reason" />
+									<apex:column value="{!shl.boxScanned}" headerValue="Box" />
+									<apex:column value="{!shl.wellLocScanned}" headerValue="Well Location" />
+									<apex:column value="{!shl.lastScanDateTime}" headerValue="Last Accession Scan" />
+								</apex:pageBlockTable>
+								<script type="text/javascript">
+								$j = jQuery.noConflict();
+								$j(document).ready(function () {
+									$j("[id$=storageTable]").DataTable({
+										stateSave: true,
+										paging: false,
+										order: [[5, 'desc']]
+									});
+								});
+								</script>
+
+								<apex:pageBlockTable id="reviewTable" rendered="{!IF(mode == 'failReview', true, false)}" styleClass="table table-hover tablesorter table-bordered table-striped chooseTable" value="{!failReviewItems}" var="fri" headerClass="header"  style="background-color: #c2d6d6; border-color: #1a1a1a;">
+
+									<apex:column headerValue="All">
+										<apex:facet name="header">
+										<apex:outputPanel id="SelectedCount">
+	                         			    <div style="padding-left: 3px;">
+
+	                              				<!-- <br /> -->
+											<apex:inputCheckbox id="selectAll" title="Select All Records">
+												<apex:actionSupport event="onclick" action="{!unselectAll}" reRender="tables">
+												</apex:actionSupport>
+											</apex:inputCheckbox>
+											<apex:outputText value=" - All" />
+										</div>
+	                       		 		</apex:outputPanel>
+										</apex:facet>
+										<apex:inputCheckbox id="selectBox" value="{!fri.Select_Product__c}"/>
+									</apex:column>
+
+									<apex:column value="{!fri.Kit_ID_formatted__c}" headerValue="Kit ID" />
+									<apex:column value="{!fri.Kit_Order_Status__c}" headerValue="Kit Status" />
+									<apex:column value="{!fri.Accessioning_Status__c}" headerValue="Accessioning Status" />
+									<apex:column value="{!fri.Failure_Reason__c}" headerValue="Failure Reason"/>
+									<apex:column value="{!fri.Failure_Reviewed_By__c}" headerValue="Failure Reviewed By"/>
+									<apex:column value="{!fri.Last_Accessioning_Scan__c}" headerValue="Last Accession Scan" />
+								</apex:pageBlockTable>
+
+								<script type="text/javascript">
+								$j = jQuery.noConflict();
+								$j(document).ready(function () {
+									$j("[id$=reviewTable]").DataTable({
+										stateSave: true,
+										paging: false,
+										order: [[6, 'desc']]
+									});
+								});
+								</script>
+
+							</apex:outputPanel>
+						</apex:pageBlock>
+					</div>
+				</div>
+			</div>
+		</apex:form>
+	</body>
+	</html>
+</apex:page>
