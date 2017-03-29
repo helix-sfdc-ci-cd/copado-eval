@@ -200,6 +200,17 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>External_Id__c</fullName>
+        <description>Copado Week 2 PoC</description>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Fax</fullName>
         <trackHistory>false</trackHistory>
     </fields>
