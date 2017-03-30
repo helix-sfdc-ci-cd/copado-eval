@@ -1,5 +1,7 @@
 public without sharing class Util {
     
+    // Keep in ALPHA Order
+    // 
     //  dateToIso                                   : Return date vbl as yyyy-mm-dd; null date returns null
     //  dateToYyyyMm                                : Take a date and convert to yyyymm as string
     //	dirtyCaches									: Clears out (null) the static singleton caches - useful when users are mocked after caches are built
